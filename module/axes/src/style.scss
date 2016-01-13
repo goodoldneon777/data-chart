@@ -1,0 +1,97 @@
+$padding: 0.5em;
+
+
+
+.m-axes {
+
+	.y-axis {
+		margin-bottom: $padding;
+		padding-left: $padding;
+		padding-right: $padding;
+	}
+
+	.x-axis {
+		margin-bottom: $padding;
+		padding-left: $padding;
+		padding-right: $padding;
+	}
+
+	.field-expand {
+		margin-top: $padding/2;
+		padding-left: $padding;
+	}
+
+	.filter-axis {
+		margin-top: $padding/2;
+		padding-left: $padding;
+		padding-right: $padding;
+
+		.min-div {
+			padding-right: $padding/2;
+		}
+
+		.max-div {
+			padding-left: $padding/2;
+		}
+	}
+
+	.filter-main {
+		margin-top: $padding/2;
+		padding-left: $padding;
+		padding-right: $padding;
+
+		.dateMin-div {
+			padding-right: $padding/2;
+		}
+
+		.dateMax-div {
+			padding-left: $padding/2;
+		}
+
+		.round-div {
+			margin-top: $padding/2;
+		}
+
+		.tapGrade-div {
+			margin-top: $padding/2;
+		}
+	}
+
+	.panel-body {
+		padding: 0;
+	}
+
+	.panel-heading {
+		padding: $padding/2;
+	}
+
+	.row {
+		margin: 0;
+		padding: 0;
+	}
+
+
+	select {
+		height: 2em;
+		margin-bottom: $padding;
+	}
+
+	input {
+		height: 2em;
+	}
+
+	h4 {
+		// margin-left: -1 * $padding + 0.1;
+		// margin-top: 0;
+		// margin-left: -1 * $padding;
+		margin-top: 0;
+		padding: $padding / 2;
+		background-color: #d9edf7;
+	}
+
+	hr {
+		margin-top: $padding;
+		margin-bottom: $padding;
+	}
+}
+

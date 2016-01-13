@@ -1,0 +1,50 @@
+.m-axes .y-axis {
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em; }
+.m-axes .x-axis {
+  margin-bottom: 0.5em;
+  padding-left: 0.5em;
+  padding-right: 0.5em; }
+.m-axes .field-expand {
+  margin-top: 0.25em;
+  padding-left: 0.5em; }
+.m-axes .filter-axis {
+  margin-top: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em; }
+  .m-axes .filter-axis .min-div {
+    padding-right: 0.25em; }
+  .m-axes .filter-axis .max-div {
+    padding-left: 0.25em; }
+.m-axes .filter-main {
+  margin-top: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em; }
+  .m-axes .filter-main .dateMin-div {
+    padding-right: 0.25em; }
+  .m-axes .filter-main .dateMax-div {
+    padding-left: 0.25em; }
+  .m-axes .filter-main .round-div {
+    margin-top: 0.25em; }
+  .m-axes .filter-main .tapGrade-div {
+    margin-top: 0.25em; }
+.m-axes .panel-body {
+  padding: 0; }
+.m-axes .panel-heading {
+  padding: 0.25em; }
+.m-axes .row {
+  margin: 0;
+  padding: 0; }
+.m-axes select {
+  height: 2em;
+  margin-bottom: 0.5em; }
+.m-axes input {
+  height: 2em; }
+.m-axes h4 {
+  margin-top: 0;
+  padding: 0.25em;
+  background-color: #d9edf7; }
+.m-axes hr {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em; }
