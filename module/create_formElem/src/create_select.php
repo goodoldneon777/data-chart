@@ -3,8 +3,11 @@
 	function create_select($name_id, $title, $html_class = "", $tooltip = null, $input_area = null) {
 		require(SERVER_ROOT . '/php/dist/sql_openConn.php');
 
-
+		//Initialize
 		$html = '';
+		$hasChildren = false;
+
+		$html_class .= ' watch';
 
 
 		switch ($input_area) {
@@ -35,6 +38,9 @@
 		$resultOption = $conn->query($sql);
 
 
+		$html .= '<div class="select-wrap">';
+
+
 		$count = 1;
 		if ($resultOption->num_rows > 0) {
 			$valueInList = false;	//Initialize. $valueInList will be used later to determine whether $value isn't an option in the param_dropdown table.
@@ -53,7 +59,8 @@
 
 
 					if ($resultChild->num_rows > 0) {
-						$html_class .= ' watch';
+						$hasChildren = true;
+						// $html_class .= ' watch';
 					}
 
 
@@ -73,14 +80,14 @@
 
 			$html .= '</select>';
 		} else {
-			$html = 'none';
+			$html .= '{error: child not found}';
 		}
 
 
+		//Create field expand (even if no children).
+		$html .= '<div class="field-expand">';
 
-		if ($resultChild->num_rows > 0) {
-			$html .= '<div class="field-expand">';
-
+		if ($hasChildren) {
 			while($row = $resultChild->fetch_assoc()) {
 				$child_name_id = $row["child_name_id"];
 				$html_class = $row["html_class"];
@@ -88,13 +95,16 @@
 				$html .= create_select($child_name_id, "", $html_class);
 			}
 
-			$html .= '</div>';
 		}
+		$html .= '</div>';	//CLose 'field-expand' div.
+
+
+		$html .= '</div>';	//Close 'select-wrap' div.
 
 
 		$conn->close();
 
-		// return $child_name_id;
+
 		return $html;
 	}
 

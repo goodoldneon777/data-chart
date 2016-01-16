@@ -21,20 +21,17 @@
 		<form>
 
 			<h4>Y-Axis</h4>
-			<div class="y-axis form-group">
-				<?php echo create_formElem("field", "y-field", "y-axis"); ?>
+			<div class="y-axis area-wrap form-group">
+					<?php echo create_formElem("field", "y-field", "y-axis"); ?>
 
 
-				<div class="field-expand"></div>
-
-
-				<div class="filter-axis row">
-					<div class="min-div col-xs-6 noPad-xs">
+				<div class="filter-wrap row">
+					<div class="min-wrap col-xs-6 noPad-xs">
 						<?php echo create_formElem("axis_min", "min"); ?>
 					</div>
 
 
-					<div class="max-div col-xs-6 noPad-xs">
+					<div class="max-wrap col-xs-6 noPad-xs">
 						<?php echo create_formElem("axis_max", "max"); ?>
 					</div>
 				</div>
@@ -48,20 +45,20 @@
 
 
 			<h4>X-Axis</h4>
-			<div class="x-axis form-group">
+			<div class="x-axis area-wrap form-group">
 				<?php echo create_formElem("field", "x-field", "x-axis"); ?>
 
 
-				<div class="field-expand"></div>
+				<!-- <div class="field-expand"></div> -->
 
 
-				<div class="filter-axis row">
-					<div class="min-div col-xs-6 noPad-xs">
+				<div class="filter-wrap row hidden">
+					<div class="min-wrap col-xs-6 noPad-xs">
 						<?php echo create_formElem("axis_min", "min"); ?>
 					</div>
 
 
-					<div class="max-div col-xs-6 noPad-xs">
+					<div class="max-wrap col-xs-6 noPad-xs">
 						<?php echo create_formElem("axis_max", "max"); ?>
 					</div>
 				</div>
@@ -69,7 +66,7 @@
 
 				<div class="row">
 					<div class="col-xs-3"></div>
-					<div class="round-div col-xs-6 noPad-xs">
+					<div class="round-wrap col-xs-6 noPad-xs">
 						<?php echo create_formElem("axis_round", "round"); ?>
 					</div>
 					<div class="col-xs-3"></div>
@@ -87,12 +84,12 @@
 			<div class="filter-main form-group">
 
 				<div class="row">
-					<div class="dateMin-div col-xs-6 noPad-xs">
+					<div class="dateMin-wrap col-xs-6 noPad-xs">
 						<?php echo create_formElem("date_min", "date-min"); ?>
 					</div>
 
 
-					<div class="dateMax-div col-xs-6 noPad-xs">
+					<div class="dateMax-wrap col-xs-6 noPad-xs">
 						<?php echo create_formElem("date_max", "date-max"); ?>
 					</div>
 				</div>
@@ -100,7 +97,7 @@
 
 				<div class="row">
 					<div class="col-xs-3"></div>
-					<div class="tapGrade-div col-xs-6 noPad-xs">
+					<div class="tapGrade-wrap col-xs-6 noPad-xs">
 						<?php echo create_formElem("tap_Grade", "grade"); ?>
 					</div>
 					<div class="col-xs-3"></div>

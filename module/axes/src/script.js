@@ -1,13 +1,14 @@
-
 var m_axes = {
 	data: {
 		y_axis: {
 			field: null,
+			param: {},
 			min: null,
 			max: null
 		},
 		x_axis: {
 			field: null,
+			param: {},
 			min: null,
 			max: null,
 			round: null
@@ -26,18 +27,13 @@ m_axes.watch = function() {
 	'use strict';
 
 
-	$('.m-axes .watch').change(function() {
-		console.log(1);
-		// m_axes.refresh_fieldExpand($(this));
+	$('.m-axes').on('change', '.watch', function() {
+		var fieldSelect = $(this);
+		var fieldExpand = $(this).closest('.select-wrap').find(' > .field-expand');
+
+		m_axes.refresh_fieldExpand(fieldSelect, fieldExpand);
 	});
-
-	// $('.m-axes .y-field').change(function() {
-	// 	m_axes.refresh_fieldExpand($(this));
-	// });
-
-	// $('.m-axes .x-field').change(function() {
-	// 	m_axes.refresh_fieldExpand($(this));
-	// });
+	$('.m-axes .x-field').trigger("change");
 
 };
 
@@ -70,11 +66,11 @@ m_axes.validate = function() {
 		errorText += "<li>Y-axis max is invalid. Must be a number.</li> \n";
 	}
 
-	if (x_min.length > 0  &&  !$.isNumeric(x_min)) {
+	if (!$('.m-axes .x-axis .filter-wrap').hasClass('hidden')  &&  x_min.length > 0  &&  !$.isNumeric(x_min)) {
 		errorText += "<li>X-axis min is invalid. Must be a number.</li> \n";
 	}
 
-	if (x_max.length > 0  &&  !$.isNumeric(x_max)) {
+	if (!$('.m-axes .x-axis .filter-wrap').hasClass('hidden')  &&  x_max.length > 0  &&  !$.isNumeric(x_max)) {
 		errorText += "<li>X-axis max is invalid. Must be a number.</li> \n";
 	}
 
@@ -118,28 +114,27 @@ m_axes.parse = function() {
 
 
 
-m_axes.refresh_fieldExpand = function(elem) {
+m_axes.refresh_fieldExpand = function(fieldSelect, fieldExpand) {
 	'use strict';
 	var msg = '';
-	var name_id = elem.val();
-	var field_expand = elem.parent().find('.field-expand');
+	var name_id = fieldSelect.val();
 
 
 	if (name_id === 'tap_dt') {
-		elem.parent().find('.filter').addClass('hidden');
+		fieldSelect.parent().closest('.area-wrap').find('.filter-wrap').addClass('hidden');
 	} else {
-		elem.parent().find('.filter').removeClass('hidden');
+		fieldSelect.parent().closest('.area-wrap').find('.filter-wrap').removeClass('hidden');
 	}
 
 	$.ajax({
 		type: 'POST',
-    url: gVar.root + '/php/dist/create_fieldExpand.php',
+    url: gVar.root + '/module/create_formElem/dist/create_fieldExpand_ajax.php',
     data: {
     	'name_id' : JSON.stringify(name_id)
     },
     dataType: 'json',
     success: function(results) {
-    	field_expand.html(results.html);
+    	fieldExpand.html(results.html);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
 			msg = 'Status: ' + textStatus + '\n' + 'Error: ' + errorThrown;
@@ -157,8 +152,8 @@ m_axes.refresh_fieldExpand = function(elem) {
 $( document ).ready(function() {
 	m_axes.watch();
 
-	// $('.m-axes .y-field').trigger("change");
-	// $('.m-axes .x-field').trigger("change");
+	$('.m-axes .y-field').trigger("change");
+	$('.m-axes .x-field').trigger("change");
 
 
 });
