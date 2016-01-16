@@ -1,7 +1,8 @@
 <?php
 
 	function create_axes() {
-		require_once(SERVER_ROOT . '/php/dist/create_input.php');
+		// require_once(SERVER_ROOT . '/php/dist/create_input.php');
+		// require(SERVER_ROOT . '/module/create_formElem/module.php');
 
 		//Function continues...
 
@@ -21,7 +22,7 @@
 
 			<h4>Y-Axis</h4>
 			<div class="y-axis form-group">
-				<?php echo create_input("field", "y-field", "y-axis"); ?>
+				<?php echo create_formElem("field", "y-field", "y-axis"); ?>
 
 
 				<div class="field-expand"></div>
@@ -29,12 +30,12 @@
 
 				<div class="filter-axis row">
 					<div class="min-div col-xs-6 noPad-xs">
-						<?php echo create_input("axis_min", "min"); ?>
+						<?php echo create_formElem("axis_min", "min"); ?>
 					</div>
 
 
 					<div class="max-div col-xs-6 noPad-xs">
-						<?php echo create_input("axis_max", "max"); ?>
+						<?php echo create_formElem("axis_max", "max"); ?>
 					</div>
 				</div>
 
@@ -48,7 +49,7 @@
 
 			<h4>X-Axis</h4>
 			<div class="x-axis form-group">
-				<?php echo create_input("field", "x-field", "x-axis"); ?>
+				<?php echo create_formElem("field", "x-field", "x-axis"); ?>
 
 
 				<div class="field-expand"></div>
@@ -56,12 +57,12 @@
 
 				<div class="filter-axis row">
 					<div class="min-div col-xs-6 noPad-xs">
-						<?php echo create_input("axis_min", "min"); ?>
+						<?php echo create_formElem("axis_min", "min"); ?>
 					</div>
 
 
 					<div class="max-div col-xs-6 noPad-xs">
-						<?php echo create_input("axis_max", "max"); ?>
+						<?php echo create_formElem("axis_max", "max"); ?>
 					</div>
 				</div>
 
@@ -69,7 +70,7 @@
 				<div class="row">
 					<div class="col-xs-3"></div>
 					<div class="round-div col-xs-6 noPad-xs">
-						<?php echo create_input("axis_round", "round"); ?>
+						<?php echo create_formElem("axis_round", "round"); ?>
 					</div>
 					<div class="col-xs-3"></div>
 				</div>
@@ -87,12 +88,12 @@
 
 				<div class="row">
 					<div class="dateMin-div col-xs-6 noPad-xs">
-						<?php echo create_input("date_min", "date-min"); ?>
+						<?php echo create_formElem("date_min", "date-min"); ?>
 					</div>
 
 
 					<div class="dateMax-div col-xs-6 noPad-xs">
-						<?php echo create_input("date_max", "date-max"); ?>
+						<?php echo create_formElem("date_max", "date-max"); ?>
 					</div>
 				</div>
 
@@ -100,7 +101,7 @@
 				<div class="row">
 					<div class="col-xs-3"></div>
 					<div class="tapGrade-div col-xs-6 noPad-xs">
-						<?php echo create_input("tap_Grade", "grade"); ?>
+						<?php echo create_formElem("tap_Grade", "grade"); ?>
 					</div>
 					<div class="col-xs-3"></div>
 				</div>

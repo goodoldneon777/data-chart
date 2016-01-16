@@ -1,3 +1,4 @@
+
 var m_axes = {
 	data: {
 		y_axis: {
@@ -25,13 +26,18 @@ m_axes.watch = function() {
 	'use strict';
 
 
-	$('.m-axes .y-field').change(function() {
-		m_axes.refresh_fieldExpand($(this));
+	$('.m-axes .watch').change(function() {
+		console.log(1);
+		// m_axes.refresh_fieldExpand($(this));
 	});
 
-	$('.m-axes .x-field').change(function() {
-		m_axes.refresh_fieldExpand($(this));
-	});
+	// $('.m-axes .y-field').change(function() {
+	// 	m_axes.refresh_fieldExpand($(this));
+	// });
+
+	// $('.m-axes .x-field').change(function() {
+	// 	m_axes.refresh_fieldExpand($(this));
+	// });
 
 };
 
@@ -151,8 +157,8 @@ m_axes.refresh_fieldExpand = function(elem) {
 $( document ).ready(function() {
 	m_axes.watch();
 
-	$('.m-axes .y-field').trigger("change");
-	$('.m-axes .x-field').trigger("change");
+	// $('.m-axes .y-field').trigger("change");
+	// $('.m-axes .x-field').trigger("change");
 
 
 });

@@ -1,5 +1,6 @@
 <?php
-	require_once(SERVER_ROOT . '/php/dist/create_input.php');
+	// require_once(SERVER_ROOT . '/php/dist/create_input.php');
+	require(SERVER_ROOT . '/module/create_input/module.php');
 
 	$server = getenv("server");
 	$userRO = getenv("userRO");
@@ -31,14 +32,13 @@
 	}
 
 	$result = $conn->query($sql);
-	// $resultArr = $result->fetch_assoc();
 
 
 	while($row = $result->fetch_assoc()) {
 		$child_name_id = $row["child_name_id"];
 		$html_class = $row["html_class"];
 
-		$html .= create_input($child_name_id, $html_class);
+		$html .= create_formElem($child_name_id, $html_class);
 	}
 	
 
