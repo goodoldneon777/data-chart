@@ -6,7 +6,6 @@ SetEnv passRo "manofsteel"
 SetEnv db "data_chart"
 
 
-
 RewriteEngine On    # Turn on the rewriting engine
 
 #RewriteCond %{REQUEST_URI} !/plugin([0-9a-zA-Z\_\-]*) [NC]

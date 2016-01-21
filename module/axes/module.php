@@ -98,7 +98,7 @@
 				<div class="row">
 					<div class="col-xs-3"></div>
 					<div class="tapGrade-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("tap_Grade", "grade"); ?>
+						<?php echo create_formElem("tap_Grade", "tap-grade"); ?>
 					</div>
 					<div class="col-xs-3"></div>
 				</div>

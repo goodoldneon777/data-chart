@@ -14,10 +14,18 @@ p_main.watch = function() {
 
 p_main.submit = function() {
 	'use strict';
-
 	var errorText = m_axes.validate();
 
-	console.log(errorText);
+
+	if (errorText !== '') {
+		console.log(errorText);
+		return false;
+	}
+
+
+	m_axes.parse();
+
+	
 };
 
 

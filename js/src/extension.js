@@ -1,6 +1,6 @@
 function isValidDate(str) {
   // Dependencies: momentjs.
-  var d = moment(str);
+  var d = moment(str, 'M/D/YYYY');
 
 
   // If it doesn't contain 2 a hyphens (-), forward slashes (/), or back slashes (\).
@@ -91,7 +91,7 @@ function ifBlank(val, replace) {
     return null;
   }
 
-  $.trim(val);
+  val = $.trim(val);
 
   if (val === '') {
     return replace;
