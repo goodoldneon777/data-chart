@@ -64,7 +64,7 @@
 
 
 	function indent($str, $count, $length = 2) {
-		$char = "&nbsp;";
+		$char = ' ';
 		$indent = '';
 
 		for ($i = 1; $i <= $length; $i++) {
@@ -72,6 +72,12 @@
 		}
 
 		return $indent . str_replace("\n", "\n" . $indent, $str);
+	}
+
+
+
+	function spaceToNbsp($str) {
+		return str_replace(' ', '&nbsp;', $str);
 	}
 
 	

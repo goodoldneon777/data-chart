@@ -1,6 +1,6 @@
 <?php
 
-	function create_definition($id) {
+	function create_definition($id, $year) {
 		require (SERVER_ROOT . '/php/dist/constant.php');
 		require_once (SERVER_ROOT . '/php/dist/extension.php');
 
@@ -9,43 +9,24 @@
 		$type = $param[0]->value;
 
 
+		$field = null;
+		$id_arr = null;
+		$from = null;
+		$db = $const->db;
+		$where_local = null;
+		$where_realistic = null;
+		$select_distinct = false;
+		$join = 'inner';
+		$nullToZero = false;
+		$fromPseudoTable = false;
+		
+
+
 		require (SERVER_ROOT . '/module/create_definition/dist/type_' . $type . '.php');
 		
 
 		if (!isset($field)) {
 			$field = $id;
-		}
-
-		if (!isset($id_arr)) {
-			$id_arr = null;
-		}
-
-		if (!isset($from)) {
-			$from = null;
-		}
-
-		if (!isset($db)) {
-			$db = $const->db;
-		}
-
-		if (!isset($where_local)) {
-			$where_local = null;
-		}
-
-		if (!isset($where_realistic)) {
-			$where_realistic = null;
-		}
-
-		if (!isset($select_distinct)) {
-			$select_distinct = false;
-		}
-
-		if (!isset($join)) {
-			$join = 'inner';
-		}
-
-		if (!isset($nullToZero)) {
-			$nullToZero = false;
 		}
 
 
@@ -67,6 +48,7 @@
 		$sql->select_distinct = $select_distinct;
 		$sql->join = $join;
 		$sql->nullToZero = $nullToZero;
+		$sql->fromPseudoTable = $fromPseudoTable;
 
 
 		$output = new stdClass();

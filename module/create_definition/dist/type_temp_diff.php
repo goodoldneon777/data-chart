@@ -10,11 +10,7 @@
 	
 
 	$field = "[temp $test1_id] - [temp $test2_id]";
-  $id_arr = array(
-    '[temp ' . $test1_id . ']',
-    '[temp ' . $test2_id . ']'
-  );
-
+  $id_arr = idMultiStrToArr($field);
 	
 
 
