@@ -12,7 +12,7 @@
 
 
 		//Y-axis stuff.
-		$y_id = '[bop_ladle_add bop_ladle_al total_cntd]';
+		$y_id = '[bop_ladle_add bop_ladle_si FeSi]';
 		// $y_id = '[temp_diff tap tol]';
 		// $y_id = '[chem dsf_start s]';
 		// $y_id = '[chem BLAD c]';
