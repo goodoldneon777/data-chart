@@ -24,7 +24,7 @@
 	$sql = 
 		"select c.child_name_id, c.html_class \n" .
 		"from data_chart.param_input_child c \n" .
-		"where c.name_id = '" . $name_id . "' \n" .
+		"where c.option_value = '" . $name_id . "' \n" .
 		"order by c.order_num \n";
 
 	if (!$conn->query($sql)) {

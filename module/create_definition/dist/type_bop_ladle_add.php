@@ -8,7 +8,7 @@
 	$title = "BOP $general_name ($specific_name)";
   $unit = 'lbs';
 
-	$id = fieldWrapAdd("$type $general_id $specific_id");
+	$id = idWrapAdd("$type $general_id $specific_id");
 	$field = 'act_wt';
   $from = 'bop_ht_mat_add';
   $join = 'left outer';
@@ -16,7 +16,7 @@
 
 
 	switch ($general_id) {
-    case 'bop_ladle_al':
+    case 'bop_ladle_AL':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";
@@ -34,7 +34,7 @@
           break;
       }
       break;
-    case 'bop_ladle_mn':
+    case 'bop_ladle_MN':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";
@@ -49,7 +49,7 @@
           break;
       }
       break;
-    case 'bop_ladle_c':
+    case 'bop_ladle_C':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";
@@ -64,7 +64,7 @@
           break;
       }
       break;
-    case 'bop_ladle_si':
+    case 'bop_ladle_SI':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";
@@ -76,7 +76,7 @@
           break;
       }
       break;
-    case 'bop_ladle_b':
+    case 'bop_ladle_B':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";
@@ -88,7 +88,7 @@
           break;
       }
       break;
-    case 'bop_ladle_cb':
+    case 'bop_ladle_CB':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";
@@ -100,7 +100,7 @@
           break;
       }
       break;
-    case 'bop_ladle_cr':
+    case 'bop_ladle_CR':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";
@@ -112,7 +112,7 @@
           break;
       }
       break;
-    case 'bop_ladle_ti':
+    case 'bop_ladle_TI':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";
@@ -124,7 +124,7 @@
           break;
       }
       break;
-    case 'bop_ladle_p':
+    case 'bop_ladle_P':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";
@@ -136,7 +136,7 @@
           break;
       }
       break;
-    case 'bop_ladle_v':
+    case 'bop_ladle_V':
       switch ($specific_id) {
         case 'total_cntd':
           $where_local = "mat_cd = 'foo' ";

@@ -1,13 +1,13 @@
 <?php
 
-	function fieldWrapAdd($str) {
+	function idWrapAdd($str) {
 		return '[' . $str . ']';
 	}
 
 
 
-	function fieldWrapRemove($str) {
-		if (!fieldWrapExist($str)) {
+	function idWrapRemove($str) {
+		if (!idWrapExist($str)) {
 			return false;
 		}
 
@@ -16,7 +16,7 @@
 
 
 
-	function fieldWrapExist($str) {
+	function idWrapExist($str) {
 		// if (substr($str, 0, 1) === '['  &&  substr($str, -1, 1) === ']') {
 		if (strpos($str, '[') >= 0  &&  strpos($str, ']') >= 0) {
 			return true;
@@ -28,11 +28,11 @@
 
 
 	function idToParam($str) {
-		if (!fieldWrapExist($str)) {
+		if (!idWrapExist($str)) {
 			return false;
 		}
 
-		$str = fieldWrapRemove($str);
+		$str = idWrapRemove($str);
 
 		$str_arr = explode(' ', $str);
 
@@ -50,8 +50,25 @@
 
 
 
+	function paramToId($param) {
+		$str = '';
+
+		foreach ($param as $key=>$value) {
+			if ($key > 0) {
+				$str .= ' ';
+			}
+
+			$str .= $value->value;
+		}
+
+
+		return idWrapAdd($str);
+	}
+
+
+
 	function idMultiStrToArr($str) {
-		if (!fieldWrapExist($str)) {
+		if (!idWrapExist($str)) {
 			return false;
 		}
 

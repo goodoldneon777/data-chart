@@ -1,6 +1,6 @@
 <?php
 
-	function create_definition($id, $year) {
+	function create_definition($id, $year_min) {
 		require (SERVER_ROOT . '/php/dist/constant.php');
 		require_once (SERVER_ROOT . '/php/dist/extension.php');
 
@@ -19,7 +19,6 @@
 		$join = 'inner';
 		$nullToZero = false;
 		$fromPseudoTable = false;
-		
 
 
 		require (SERVER_ROOT . '/module/create_definition/dist/type_' . $type . '.php');

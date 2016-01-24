@@ -16,10 +16,13 @@ var m_axes = {
 		filter_main: {
 			date_min: null,
 			date_max: null,
+			year_min: null,
 			tap_grade: null
 		}
 	}
 };
+
+
 
 
 
@@ -34,6 +37,8 @@ m_axes.start = function() {
 
 
 
+
+
 m_axes.watch = function() {
 	'use strict';
 
@@ -44,15 +49,27 @@ m_axes.watch = function() {
 
 		m_axes.refresh_fieldExpand(fieldSelect, fieldExpand);
 	});
-	$('.m-axes .x-field').trigger("change");
+
+
+	// $('.m-axes .submitBtn').click(function() {		//Watch for clicking the submit button.
+	// 	m_axes.submit();
+	// });
+
 
 };
 
 
 
-m_axes.submit = function() {
-	'use strict';
-};
+
+
+// m_axes.submit = function() {
+// 	'use strict';
+	
+
+// 	m_axes.validate();
+// };
+
+
 
 
 
@@ -107,10 +124,20 @@ m_axes.validate = function() {
 		errorText += "<li>'Date Max' is invalid. Must be a date.</li> \n";
 	}
 
+	if (isValidDate(date_min)  &&  isValidDate(date_max)) {
+		date_min = moment(date_min, 'M/D/YYYY');
+		date_max = moment(date_max, 'M/D/YYYY');
+
+		if (date_min > date_max) {
+			errorText += "<li>'Date Min' must be before 'Date Max'.</li> \n";
+		}
+	}
 
 
 	return errorText;
 };
+
+
 
 
 
@@ -120,6 +147,7 @@ m_axes.parse = function() {
 	var elem_xAxis = $('.m-axes .x-axis');
 	var elem_filterMain = $('.m-axes .filter-main');
 	
+
 
 	//Y-axis input parse.
 	m_axes.input.y_axis = {
@@ -138,6 +166,7 @@ m_axes.parse = function() {
 		);
 	});
 	//End: Y-axis input parse.
+
 
 
 	//X-axis input parse.
@@ -165,14 +194,22 @@ m_axes.parse = function() {
 	//End: X-axis input parse.
 
 
+
 	//Main filter input parse.
 	var date_min = ifBlank(elem_filterMain.find('.date-min').val(), null);
-	date_min = moment(date_min, 'M/D/YYYY').format('M/D/YYYY');
+	date_min = moment(date_min, 'M/D/YYYY').format('YYYY-MM-DD');
+
 	var date_max = ifBlank(elem_filterMain.find('.date-max').val(), null);
-	date_min = moment(date_min, 'M/D/YYYY').format('M/D/YYYY');
+	if (date_max) {
+		date_max = moment(date_max, 'M/D/YYYY').format('YYYY-MM-DD');
+	}
+
+	var year_min = moment(date_min, 'YYYY-MM-DD').format('YY');
+
 	m_axes.input.filter_main = {
 		date_min: date_min,
 		date_max: date_max,
+		year_min: year_min,
 		tap_grade: ifBlank(elem_filterMain.find('.tap-grade').val(), null)
 	};
 	//End: Main filter input parse.
@@ -180,6 +217,8 @@ m_axes.parse = function() {
 
 	return true;
 };
+
+
 
 
 
@@ -214,6 +253,7 @@ m_axes.refresh_fieldExpand = function(fieldSelect, fieldExpand) {
 
 	// return arr;
 };
+
 
 
 

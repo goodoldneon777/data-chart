@@ -53,7 +53,7 @@
 					$sql =
 						"select c.child_name_id, c.html_class \n" .
 						"from param_input_child c \n" .
-						"where name_id = '" . $option_value . "' \n";
+						"where option_value = '" . $option_value . "' \n";
 
 					$resultChild = $conn->query($sql);
 

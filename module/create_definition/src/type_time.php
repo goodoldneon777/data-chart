@@ -4,7 +4,7 @@
 	$test_name = $param[1]->text;
 
 	$title = $test_name . ' Time';
-	$id = fieldWrapAdd($type . ' ' . $test_id);
+	$id = idWrapAdd($type . ' ' . $test_id);
 
 	$unit = null;
 

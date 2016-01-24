@@ -1,0 +1,17 @@
+.l-body {
+  padding: 0.5em;
+  max-width: 90em;
+  width: 100%;
+  position: relative;
+  margin: auto;
+  text-align: center; }
+
+.l-left {
+  margin-right: 0.5em;
+  width: 18em;
+  float: left;
+  height: 100px; }
+
+.l-right {
+  width: auto;
+  overflow: hidden; }

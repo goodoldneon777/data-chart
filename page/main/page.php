@@ -8,12 +8,20 @@
     <title>Steel Server Web Chart</title>
 
     <?php
+      //Load module files.
       require(SERVER_ROOT . '/module/html_head/module.php');
       require(SERVER_ROOT . '/module/create_formElem/module.php');
-
-      create_html_head();
+      require(SERVER_ROOT . '/module/axes/module.php');
+      require(SERVER_ROOT . '/module/chart/module.php');
+      require(SERVER_ROOT . '/module/html_foot/module.php');
     ?>
 
+
+    <?php
+      create_html_head(); //Create html_head module.
+    ?>
+
+    <link rel="stylesheet" media="screen" href="<?php echo WEB_ROOT . "/page/main/dist/style.min.css"; ?>">
 
   </head>
 
@@ -25,21 +33,24 @@
 
       <div class="l-left">
         <?php
-          include(SERVER_ROOT . '/module/axes/module.php');
+          create_axes();  //Create axes module.
+        ?>
+      </div>
 
-          create_axes();
+
+      <div class="l-right">
+        <?php
+          create_chart(); //Create chart module.
         ?>
       </div>
 
 
 		</div>
 
-
+<br><br><br>
 
     <?php
-      require(SERVER_ROOT . '/module/html_foot/module.php');
-
-      create_html_foot();
+      create_html_foot(); //Create html_foot module.
     ?>
     
 

@@ -1,0 +1,28 @@
+$padding: 0.5em;
+
+
+
+.l-body {
+  padding: $padding;
+  max-width: 90em;
+  width: 100%;
+  position: relative;
+  margin: auto;
+  text-align: center;
+}
+
+
+
+.l-left {
+	margin-right: $padding;
+  width: 18em;
+ //  display: inline-block;
+  float: left;
+  height:100px;
+}
+
+
+.l-right {
+	width: auto;
+  overflow: hidden;
+}
