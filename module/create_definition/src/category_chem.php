@@ -17,7 +17,7 @@
       $elem_name = $param[3]->text;
 
       $title = "Chem $test_name $elem_name";
-      $id = idWrapAdd("$type $test_id $elem_id");
+      $id = idWrapAdd("$category $test_id $elem_id");
 
     	switch ($test_id) {
         case 'BLAD':

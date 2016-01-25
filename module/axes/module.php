@@ -22,7 +22,7 @@
 
 			<h4>Y-Axis</h4>
 			<div class="y-axis area-wrap form-group">
-					<?php echo create_formElem("field", "y-field", "y-axis"); ?>
+					<?php echo create_formElem("category", "y-category", "y-axis"); ?>
 
 
 				<div class="filter-wrap row">
@@ -46,7 +46,7 @@
 
 			<h4>X-Axis</h4>
 			<div class="x-axis area-wrap form-group">
-				<?php echo create_formElem("field", "x-field", "x-axis"); ?>
+				<?php echo create_formElem("category", "x-category", "x-axis"); ?>
 
 
 				<!-- <div class="field-expand"></div> -->
@@ -98,7 +98,7 @@
 				<div class="row">
 					<div class="col-xs-3"></div>
 					<div class="tapGrade-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("tap_Grade", "tap-grade"); ?>
+						<?php echo create_formElem("tap_grade", "tap-grade"); ?>
 					</div>
 					<div class="col-xs-3"></div>
 				</div>

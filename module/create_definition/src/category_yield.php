@@ -6,7 +6,7 @@
 	$elem_name = $param[2]->text;
 
 	$title = "Yield: $area_name $elem_name";
-	$id = idWrapAdd("$type $area_id $elem_id");
+	$id = idWrapAdd("$category $area_id $elem_id");
 
 	$unit = '%';
 

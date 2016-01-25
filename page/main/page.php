@@ -47,13 +47,14 @@
 
 		</div>
 
-<br><br><br>
+
 
     <?php
       create_html_foot(); //Create html_foot module.
     ?>
     
 
+    <script src="<?php echo WEB_ROOT . "/plugin/highcharts/highcharts.js"; ?>"></script>
     <script src="<?php echo WEB_ROOT . "/page/main/dist/script.min.js"; ?>"></script>
 
 

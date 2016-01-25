@@ -1,13 +1,13 @@
 var m_axes = {
 	input: {
 		y_axis: {
-			field: null,
+			category: null,
 			param: [],
 			min: null,
 			max: null
 		},
 		x_axis: {
-			field: null,
+			category: null,
 			param: [],
 			min: null,
 			max: null,
@@ -44,10 +44,10 @@ m_axes.watch = function() {
 
 
 	$('.m-axes').on('change', '.watch', function() {
-		var fieldSelect = $(this);
-		var fieldExpand = $(this).closest('.select-wrap').find(' > .field-expand');
+		var changedElem = $(this);
+		var elemExpand = $(this).closest('.select-wrap').find(' > .elem-expand');
 
-		m_axes.refresh_fieldExpand(fieldSelect, fieldExpand);
+		m_axes.refresh_elemExpand(changedElem, elemExpand);
 	});
 
 
@@ -78,7 +78,7 @@ m_axes.validate = function() {
 	var errorText = '';
 	var y_min = $('.m-axes .y-axis .min').val();
 	var y_max = $('.m-axes .y-axis .max').val();
-	var x_field = $('.m-axes .x-axis .x-field').val();
+	var x_category = $('.m-axes .x-axis .x-category').val();
 	var x_min = $('.m-axes .x-axis .min').val();
 	var x_max = $('.m-axes .x-axis .max').val();
 	var round = $('.m-axes .x-axis .round').val().toLowerCase();
@@ -102,7 +102,7 @@ m_axes.validate = function() {
 		errorText += "<li>X-axis 'Max' is invalid. Must be a number.</li> \n";
 	}
 
-	if (x_field === 'tap_dt') {
+	if (x_category === 'tap_dt') {
 		if (round.length > 0  &&  $.inArray(round, ['day', 'week', 'month', 'year']) === -1) {
 			errorText += "<li>'Round' factor is invalid. Must be a 'day', 'week', 'month', or 'year'.</li> \n";
 		}
@@ -151,7 +151,7 @@ m_axes.parse = function() {
 
 	//Y-axis input parse.
 	m_axes.input.y_axis = {
-		field: elem_yAxis.find('.y-field').val(),
+		category: elem_yAxis.find('.y-category').val(),
 		param: [],
 		min: ifBlank(elem_yAxis.find('.min').val(), null),
 		max: ifBlank(elem_yAxis.find('.max').val(), null)
@@ -171,7 +171,7 @@ m_axes.parse = function() {
 
 	//X-axis input parse.
 	m_axes.input.x_axis = {
-		field: elem_xAxis.find('.x-field').val(),
+		category: elem_xAxis.find('.x-category').val(),
 		param: [],
 		min: null,
 		max: null,
@@ -222,27 +222,27 @@ m_axes.parse = function() {
 
 
 
-m_axes.refresh_fieldExpand = function(fieldSelect, fieldExpand) {
+m_axes.refresh_elemExpand = function(changedElem, elemExpand) {
 	'use strict';
 	var msg = '';
-	var name_id = fieldSelect.val();
+	var name_id = changedElem.val();
 
 
 	if (name_id === 'tap_dt') {
-		fieldSelect.parent().closest('.area-wrap').find('.filter-wrap').addClass('hidden');
+		changedElem.parent().closest('.area-wrap').find('.filter-wrap').addClass('hidden');
 	} else {
-		fieldSelect.parent().closest('.area-wrap').find('.filter-wrap').removeClass('hidden');
+		changedElem.parent().closest('.area-wrap').find('.filter-wrap').removeClass('hidden');
 	}
 
 	$.ajax({
 		type: 'POST',
-    url: gVar.root + '/module/create_formElem/dist/create_fieldExpand_ajax.php',
+    url: gVar.root + '/module/create_formElem/dist/create_elemExpand_ajax.php',
     data: {
     	'name_id' : JSON.stringify(name_id)
     },
     dataType: 'json',
     success: function(results) {
-    	fieldExpand.html(results.html);
+    	elemExpand.html(results.html);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
 			msg = 'Status: ' + textStatus + '\n' + 'Error: ' + errorThrown;
@@ -263,8 +263,8 @@ $( document ).ready(function() {
 
 	m_axes.watch();
 
-	$('.m-axes .y-field').trigger("change");
-	$('.m-axes .x-field').trigger("change");
+	$('.m-axes .y-category').trigger("change");
+	$('.m-axes .x-category').trigger("change");
 
 
 });

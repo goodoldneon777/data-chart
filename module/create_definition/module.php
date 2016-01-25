@@ -6,8 +6,11 @@
 
 
 		$param = idToParam($id);
-		$type = $param[0]->value;
+		$category = $param[0]->value;
 
+		$title = null;
+		$unit = null;
+		
 
 		$field = null;
 		$id_arr = null;
@@ -21,7 +24,7 @@
 		$fromPseudoTable = false;
 
 
-		require (SERVER_ROOT . '/module/create_definition/dist/type_' . $type . '.php');
+		require (SERVER_ROOT . '/module/create_definition/dist/category_' . $category . '.php');
 		
 
 		if (!isset($field)) {
@@ -31,7 +34,7 @@
 
 
 		$info = new stdClass();
-		$info->type = $type;
+		$info->category = $category;
 		$info->title = $title;
 		$info->unit = $unit;
 

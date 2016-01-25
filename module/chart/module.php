@@ -10,13 +10,7 @@
 
 
 <div class="m-chart panel panel-primary">
-	<!-- <div class="panel-heading"> -->
-		<!-- <h3 class="panel-title">Axes</h3> -->
-	<!-- </div> -->
-
-	<div class="panel-body">
-		chart
-	</div>
+	<div class="chart-area"></div>
 </div>
 
 

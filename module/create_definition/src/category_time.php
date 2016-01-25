@@ -4,7 +4,7 @@
 	$test_name = $param[1]->text;
 
 	$title = $test_name . ' Time';
-	$id = idWrapAdd($type . ' ' . $test_id);
+	$id = idWrapAdd($category . ' ' . $test_id);
 
 	$unit = null;
 

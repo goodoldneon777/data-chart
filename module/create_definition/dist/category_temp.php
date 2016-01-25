@@ -11,7 +11,7 @@
       $test_name = $param[2]->text;
 
       $title = 'Temp ' . $test_name;
-      $id = idWrapAdd("$type temp_single $test_id");
+      $id = idWrapAdd("$category temp_single $test_id");
 
     	switch ($test_id) {
         case 'hm_ladle':

@@ -1,6 +1,11 @@
 .m-chart {
-	// height: 80em;
+	padding: 10px;
+	height: 100vh;
 	min-height: 30em;
 	max-height: 40em;
-  height: 100vh;
+  
+  .chart-area {
+  	height: 100%;
+  	width: 100%;
+  }
 }

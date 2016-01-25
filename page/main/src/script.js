@@ -38,13 +38,18 @@ p_main.createQuery = function() {
 
 	$.ajax({
 		type: 'POST',
-    url: gVar.root + '/page/main/dist/create_query.php',
+    url: gVar.root + '/page/main/dist/sql_stuff.php',
     data: {
     	'm_axes' : JSON.stringify(m_axes.input)
     },
     dataType: 'json',
     success: function(results) {
-    	console.log(results.query);
+    	var data = results.data;
+    	// console.log(results.query);
+    	// console.log(results.data);
+
+
+    	m_chart.createChart(data);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) { 
     	var msg = 'Status: ' + textStatus + '\n' + 'Error: ' + errorThrown;

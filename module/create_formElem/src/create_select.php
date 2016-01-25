@@ -84,8 +84,8 @@
 		}
 
 
-		//Create field expand (even if no children).
-		$html .= '<div class="field-expand">';
+		//Create elem expand (even if no children).
+		$html .= '<div class="elem-expand">';
 
 		if ($hasChildren) {
 			while($row = $resultChild->fetch_assoc()) {
@@ -96,7 +96,7 @@
 			}
 
 		}
-		$html .= '</div>';	//CLose 'field-expand' div.
+		$html .= '</div>';	//CLose 'elem-expand' div.
 
 
 		$html .= '</div>';	//Close 'select-wrap' div.
