@@ -44,12 +44,13 @@ p_main.createQuery = function() {
     },
     dataType: 'json',
     success: function(results) {
-    	var data = results.data;
+    	var data_heat = results.data_heat;
+    	var data_round = results.data_round;
     	// console.log(results.query);
-    	// console.log(results.data);
+    	console.log(results.data_round);
 
 
-    	m_chart.createChart(data);
+    	m_chart.createChart(data_heat, data_round);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) { 
     	var msg = 'Status: ' + textStatus + '\n' + 'Error: ' + errorThrown;

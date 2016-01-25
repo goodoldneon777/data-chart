@@ -29,7 +29,7 @@
 		}
 
 		$y_sql->join_field = 
-			"on $const->table.$const->field_id = subY.$const->field_id \n" .
+			"on $const->table.$const->field_heat = subY.$const->field_heat \n" .
 			"and $const->table.$const->field_year = subY.$const->field_year ";
 		$y_sql->join_field = indent($y_sql->join_field, 2);
 
@@ -54,7 +54,7 @@
 		}
 
 		$x_sql->join_field = 
-			"on $const->table.$const->field_id = subX.$const->field_id \n" .
+			"on $const->table.$const->field_heat = subX.$const->field_heat \n" .
 			"and $const->table.$const->field_year = subX.$const->field_year ";
 		$x_sql->join_field = indent($x_sql->join_field, 2);
 
@@ -82,15 +82,15 @@
 			if (!$date_max) {
 				$where .=
 					" \n" .
-					"  and $const->table.$const->tap_date >= '$date_min'";
+					"  and $const->table.$const->field_tapDate >= '$date_min'";
 			} else if (!$date_min) {
 				$where .=
 					" \n" .
-					"  and $const->table.$const->tap_date <= '$date_max 23:59:59'";
+					"  and $const->table.$const->field_tapDate <= '$date_max 23:59:59'";
 			} else {
 				$where .=
 					" \n" .
-					"  and $const->table.$const->tap_date between '$date_min' and '$date_max 23:59:59'";
+					"  and $const->table.$const->field_tapDate between '$date_min' and '$date_max 23:59:59'";
 			}
 			
 		}
@@ -98,7 +98,7 @@
 		if ($tap_grade) {
 			$where .=
 				" \n" .
-				"  and $const->table.$const->tap_grade like '$tap_grade'";
+				"  and $const->table.$const->field_tapGrade like '$tap_grade'";
 		}
 
 		if ($where_realistic_y) {
@@ -129,8 +129,17 @@
 		
 
 
+		//Main subquery.
+		$round_factor = $x_axis->round_factor;
+
+		if ($round_factor) {
+			$x_field_round = "$round_factor * round(x / $round_factor, 0) as x_round";
+		} else {
+			$x_field_round = "null as x_round";
+		}
+
 		$query =
-			"select $x_sql->x_field, $y_sql->y_field, $const->table.ht_num as heat \n" .
+			"select $x_sql->x_field, $y_sql->y_field, $const->table.$const->field_heat as heat, $const->table.$const->field_tapDate as tap_date, $x_field_round \n" .
 			"from $const->db.$const->table $const->table \n" .
 			"$x_sql->join join ( \n" .
 			"$query_x \n" .
@@ -141,7 +150,32 @@
 			") subY \n" .
 			"$y_sql->join_field \n" .
 			$where;
+		//End: Main subquery.
 		
+
+
+		//Main query.
+		$round_factor = $x_axis->round_factor;
+
+		if ($round_factor) {
+			$y_field_avg = "avg(y) over(partition by x_round) as y_avg";
+			$y_field_stdev = "stdev(y) over(partition by x_round) as y_stdev";
+			$y_field_count = "count(y) over(partition by x_round) as y_count";
+		} else {
+			$y_field_avg = "null as y_avg";
+			$y_field_stdev = "null as y_stdev";
+			$y_field_count = "null as y_count";
+		}
+
+		$query =
+			"select x, y, heat, tap_date, x_round, $y_field_avg, $y_field_stdev, $y_field_count \n" .
+			"from ( \n" .
+			indent($query, 2) . " \n" .
+			") sub";
+
+
+
+		//End: Main query.
 
 
 		return $query;

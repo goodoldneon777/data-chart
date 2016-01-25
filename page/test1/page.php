@@ -56,6 +56,7 @@
 
 	$x_axis->field = $field;
 	$x_axis->param = $param;
+	$x_axis->round_factor = null;
 
 	$m_axes->x_axis = $x_axis;
 	//End: X-axis set up.

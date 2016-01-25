@@ -86,7 +86,7 @@
 				if ($from_sub !== '') {
 					$join_type = "$join join";
 					$join_field = 
-						"on sub1.$const->field_id = $sub_alias.$const->field_id \n" .
+						"on sub1.$const->field_heat = $sub_alias.$const->field_heat \n" .
 						"and sub1.$const->field_year = $sub_alias.$const->field_year ";
 					$join_field = indent($join_field, 2);
 				} else {
@@ -169,7 +169,7 @@
 
 		//Create this query.
 		$query = 
-			"$select $field as $alias, $const->field_id, $const->field_year \n" .
+			"$select $field as $alias, $const->field_heat, $const->field_year \n" .
 			"from $from \n" .
 			$where;
 		//End: Create this query.

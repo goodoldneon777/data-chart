@@ -8,7 +8,7 @@
 	$title = "BOP $general_name ($specific_name)";
   $unit = 'lbs';
 
-	$id = idWrapAdd("$type $general_id $specific_id");
+	$id = idWrapAdd("$category $general_id $specific_id");
 	$field = 'act_wt';
   $from = 'bop_ht_mat_add';
   $join = 'left outer';

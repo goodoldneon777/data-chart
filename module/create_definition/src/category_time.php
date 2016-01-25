@@ -1,15 +1,16 @@
 <?php
 	
-	$test_id = $param[1]->value;
-	$test_name = $param[1]->text;
+	$timeType_id = $param[1]->value;
+	$timeType_name = $param[1]->text;
 
-	$title = $test_name . ' Time';
-	$id = idWrapAdd($category . ' ' . $test_id);
-
+	$title = $timeType_name . ' Time';
 	$unit = null;
+	$datatype = 'datetime';
+
+	$id = idWrapAdd($category . ' ' . $timeType_id);
 
 
-	switch ($test_id) {
+	switch ($timeType_id) {
     case 'tap':
       $field = 'tap_dt';
       $from = 'bop_ht';

@@ -11,7 +11,7 @@ var m_axes = {
 			param: [],
 			min: null,
 			max: null,
-			round: null
+			round_factor: null
 		},
 		filter_main: {
 			date_min: null,
@@ -81,7 +81,7 @@ m_axes.validate = function() {
 	var x_category = $('.m-axes .x-axis .x-category').val();
 	var x_min = $('.m-axes .x-axis .min').val();
 	var x_max = $('.m-axes .x-axis .max').val();
-	var round = $('.m-axes .x-axis .round').val().toLowerCase();
+	var round_factor = $('.m-axes .x-axis .round_factor').val().toLowerCase();
 	var date_min = $('.m-axes .filter-main .date-min').val();
 	var date_max = $('.m-axes .filter-main .date-max').val();
 
@@ -103,12 +103,12 @@ m_axes.validate = function() {
 	}
 
 	if (x_category === 'tap_dt') {
-		if (round.length > 0  &&  $.inArray(round, ['day', 'week', 'month', 'year']) === -1) {
-			errorText += "<li>'Round' factor is invalid. Must be a 'day', 'week', 'month', or 'year'.</li> \n";
+		if (round_factor.length > 0  &&  $.inArray(round_factor, ['day', 'week', 'month', 'year']) === -1) {
+			errorText += "<li>'Round Factor' is invalid. Must be a 'day', 'week', 'month', or 'year'.</li> \n";
 		}
 	} else {
-		if (round.length > 0  &&  !$.isNumeric(round)) {
-			errorText += "<li>'Round' factor is invalid. Must be a number.</li> \n";
+		if (round_factor.length > 0  &&  !$.isNumeric(round_factor)) {
+			errorText += "<li>'Round Factor' is invalid. Must be a number.</li> \n";
 		}
 	}
 
@@ -175,7 +175,7 @@ m_axes.parse = function() {
 		param: [],
 		min: null,
 		max: null,
-		round: ifBlank(elem_xAxis.find('.round').val().toLowerCase(), null)
+		round_factor: ifBlank(elem_xAxis.find('.round_factor').val().toLowerCase(), null)
 	};
 
 	elem_xAxis.find('select option:selected').each(function( index ) {

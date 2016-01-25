@@ -10,6 +10,7 @@
 
 		$title = null;
 		$unit = null;
+		$datatype = 'linear';
 		
 
 		$field = null;

@@ -67,7 +67,7 @@
 				<div class="row">
 					<div class="col-xs-3"></div>
 					<div class="round-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_round", "round"); ?>
+						<?php echo create_formElem("axis_round", "round_factor"); ?>
 					</div>
 					<div class="col-xs-3"></div>
 				</div>
