@@ -81,7 +81,8 @@ m_axes.validate = function() {
 	var x_category = $('.m-axes .x-axis .x-category').val();
 	var x_min = $('.m-axes .x-axis .min').val();
 	var x_max = $('.m-axes .x-axis .max').val();
-	var round_factor = $('.m-axes .x-axis .round_factor').val().toLowerCase();
+	var round_factor = $('.m-axes .x-axis .round-factor').val().toLowerCase();
+	var round_count = $('.m-axes .x-axis .round-count').val();
 	var date_min = $('.m-axes .filter-main .date-min').val();
 	var date_max = $('.m-axes .filter-main .date-max').val();
 
@@ -109,6 +110,12 @@ m_axes.validate = function() {
 	} else {
 		if (round_factor.length > 0  &&  !$.isNumeric(round_factor)) {
 			errorText += "<li>'Round Factor' is invalid. Must be a number.</li> \n";
+		}
+	}
+
+	if (round_count) {
+		if (!$.isNumeric(round_count)) {
+			errorText += "<li>'Round Count' is invalid. Must be a number.</li> \n";
 		}
 	}
 
@@ -175,7 +182,8 @@ m_axes.parse = function() {
 		param: [],
 		min: null,
 		max: null,
-		round_factor: ifBlank(elem_xAxis.find('.round_factor').val().toLowerCase(), null)
+		round_factor: ifBlank(elem_xAxis.find('.round-factor').val().toLowerCase(), null),
+		round_count: ifBlank(elem_xAxis.find('.round-count').val(), null)
 	};
 
 	elem_xAxis.find('select option:selected').each(function( index ) {

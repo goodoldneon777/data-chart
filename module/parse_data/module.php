@@ -1,10 +1,10 @@
 <?php
 	
-	function parse_data($query_results, $round_count_min = null) {
+	function parse_data($query_results, $round_count = null) {
 		$data_heat = array();
 
 		foreach ($query_results as $row) {
-		  $data_heat[] = array($row['x'], $row['y'], $row['heat'], $row['tap_date']);
+		  $data_heat[] = array("x"=>$row['x'], "y"=>$row['y'], "heat"=>$row['heat'], "tap_date"=>$row['tap_date']);
 		}
 
 
@@ -13,8 +13,9 @@
 
 		foreach ($query_results as $key=>$row) {
 			if ($row['x_round']) {
-		    // $data_round[] = array($row['x_round'], $row['y_avg'], $row['y_stdev'], $row['y_count']);
-		    $data_round[] = array("x"=>$row['x_round'], "y"=>$row['y_avg'], "y_stdev"=>$row['y_stdev'], "y_count"=>$row['y_count']);
+		    if (!$round_count  ||  $row['y_count'] >= $round_count) {
+		    	$data_round[] = array("x"=>$row['x_round'], "y"=>$row['y_avg'], "y_stdev"=>$row['y_stdev'], "y_count"=>$row['y_count']);
+		    }
 			}
 		}
 

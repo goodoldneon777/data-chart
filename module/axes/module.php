@@ -57,19 +57,20 @@
 						<?php echo create_formElem("axis_min", "min"); ?>
 					</div>
 
-
 					<div class="max-wrap col-xs-6 noPad-xs">
 						<?php echo create_formElem("axis_max", "max"); ?>
 					</div>
 				</div>
 
 
-				<div class="row">
-					<div class="col-xs-3"></div>
-					<div class="round-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_round", "round_factor"); ?>
+				<div class="round-wrap row">
+					<div class="round-factor-wrap col-xs-6 noPad-xs">
+						<?php echo create_formElem("axis_round_factor", "round-factor"); ?>
 					</div>
-					<div class="col-xs-3"></div>
+
+					<div class="round-count-wrap col-xs-6 noPad-xs">
+						<?php echo create_formElem("axis_round_count", "round-count"); ?>
+					</div>
 				</div>
 
 			</div>

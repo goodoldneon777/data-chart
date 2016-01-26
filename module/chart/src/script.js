@@ -6,7 +6,8 @@ var m_chart = {};
 
 m_chart.createChart = function(data_heat, data_round, x_datatype) {
     'use strict';
-console.log(data_round.y_count);
+
+
     $(function () { 
         $('.m-chart .chart-area').highcharts({
             chart: {

@@ -17,6 +17,14 @@
     padding-right: 0.25em; }
   .m-axes .filter-wrap .max-wrap {
     padding-left: 0.25em; }
+.m-axes .round-wrap {
+  margin-top: 0.25em;
+  padding-left: 0.5em;
+  padding-right: 0.5em; }
+  .m-axes .round-wrap .round-factor-wrap {
+    padding-right: 0.25em; }
+  .m-axes .round-wrap .round-count-wrap {
+    padding-left: 0.25em; }
 .m-axes .filter-main {
   margin-top: 0.25em;
   padding-left: 0.5em;
@@ -25,8 +33,6 @@
     padding-right: 0.25em; }
   .m-axes .filter-main .dateMax-wrap {
     padding-left: 0.25em; }
-  .m-axes .filter-main .round-wrap {
-    margin-top: 0.25em; }
   .m-axes .filter-main .tapGrade-wrap {
     margin-top: 0.25em; }
 .m-axes .panel-body {

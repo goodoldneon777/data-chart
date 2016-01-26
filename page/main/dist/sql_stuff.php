@@ -14,7 +14,8 @@
 
 
 	// $round_count_min = $m_axes->x_axis->round_count_min;
-	$data = parse_data($query_results);
+	$round_count = $m_axes->x_axis->round_count;
+	$data = parse_data($query_results, $round_count);
 
 
 
