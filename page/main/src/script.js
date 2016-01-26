@@ -46,11 +46,12 @@ p_main.createQuery = function() {
     success: function(results) {
     	var data_heat = results.data_heat;
     	var data_round = results.data_round;
+        var x_datatype = results.x_datatype;
     	// console.log(results.query);
-    	console.log(results.data_round);
+    	// console.log(results.data_round);
 
 
-    	m_chart.createChart(data_heat, data_round);
+    	m_chart.createChart(data_heat, data_round, x_datatype);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) { 
     	var msg = 'Status: ' + textStatus + '\n' + 'Error: ' + errorThrown;

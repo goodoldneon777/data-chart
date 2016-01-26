@@ -13,8 +13,8 @@
 
 		foreach ($query_results as $key=>$row) {
 			if ($row['x_round']) {
-		    // $data_round_tmp[] = array($row['x_round'], $row['y_avg'], $row['y_stdev'], $row['y_count']);
-		    $data_round[] = array($row['x_round'], $row['y_avg']);
+		    // $data_round[] = array($row['x_round'], $row['y_avg'], $row['y_stdev'], $row['y_count']);
+		    $data_round[] = array("x"=>$row['x_round'], "y"=>$row['y_avg'], "y_stdev"=>$row['y_stdev'], "y_count"=>$row['y_count']);
 			}
 		}
 

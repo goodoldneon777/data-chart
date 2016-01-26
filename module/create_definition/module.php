@@ -38,6 +38,7 @@
 		$info->category = $category;
 		$info->title = $title;
 		$info->unit = $unit;
+		$info->datatype = $datatype;
 
 
 		$sql = new stdClass();

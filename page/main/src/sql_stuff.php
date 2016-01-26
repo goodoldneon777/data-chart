@@ -22,6 +22,7 @@
 	$output->query = $query;
 	$output->data_heat = $data->data_heat;
 	$output->data_round = $data->data_round;
+	$output->x_datatype = 'linear';
 
 
 	echo json_encode($output);

@@ -4,9 +4,9 @@ var m_chart = {};
 
 
 
-m_chart.createChart = function(data_heat, data_round) {
+m_chart.createChart = function(data_heat, data_round, x_datatype) {
     'use strict';
-
+console.log(data_round.y_count);
     $(function () { 
         $('.m-chart .chart-area').highcharts({
             chart: {
@@ -34,6 +34,48 @@ m_chart.createChart = function(data_heat, data_round) {
             yAxis: {
                 title: {
                     text: 'TOL P %'
+                }
+            },
+            tooltip: {
+                snap: 1,
+                headerFormat: '<b>{series.name}</b><br>',
+                formatter: function() {
+                    var text = '';
+
+                    if (x_datatype === 'datetime') {
+                        text = 'y: ' + this.point.y;
+                    } else if (x_datatype === 'linear') {
+                        text = 'y: ' + this.point.y + '<br>';
+                        if (this.series.name === 'Heats') {
+                            text += 'x: ' + this.point.x;
+                        } else if (this.series.name.substring(0, 5) === 'Round') {
+                            text += 'Heat Count: ' + this.point.y_count;
+                        }
+                    }
+                    // if (mMaster.x.type === 'datetime') {
+                    //     var text = 'y: ' + Highcharts.numberFormat(this.point.y, mMaster.y.decimals, '.', ',') + ' ' + mMaster.y.unit + '<br>';
+                    //     if (this.series.name === 'Heats') {
+                    //         text += 'x: ' + Highcharts.dateFormat('%m/%d/%Y %I:%M', this.point.x) + '<br>';
+                    //         text += 'Heat ID: ' + this.point.info;
+                    //     } else if (this.series.name.substring(0, 7) === 'Average') {
+                    //         text += 'x: ' + Highcharts.dateFormat(mMaster.x.format, this.point.x) + ' (nearest ' + mMaster.x.round + ') <br>';
+                    //         text += 'Heat Count: ' + this.point.info1 + ' <br>';
+                    //         text += 'Std Dev: ' + Highcharts.numberFormat(this.point.info2, mMaster.y.decimals + 1);
+                    //     }
+                    // } else {
+                    //     var text = 'y: ' + Highcharts.numberFormat(this.point.y, mMaster.y.decimals) + ' ' + mMaster.y.unit + '<br>';
+                    //     if (this.series.name === 'Heats') {
+                    //         text += 'x: ' + Highcharts.numberFormat(this.point.x, mMaster.x.decimals) + ' ' + mMaster.x.unit + '<br>';
+                    //         text += 'Heat ID: ' + this.point.info;
+                    //     } else if (this.series.name.substring(0, 7) === 'Average') {
+                    //         text += 'x: ' + Highcharts.numberFormat(this.point.x, mMaster.x.decimals) + ' ' + mMaster.x.unit + ' (nearest ' + mMaster.x.round + ') <br>';
+                    //         text += 'Heat Count: ' + this.point.info1 + ' <br>';
+                    //         text += 'Std Dev: ' + Highcharts.numberFormat(this.point.info2, mMaster.y.decimals + 1);
+                    //     }
+                    // }
+
+
+                    return text;
                 }
             },
             series: [{

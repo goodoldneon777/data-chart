@@ -21,6 +21,8 @@
 		$y_id = paramToId($y_axis->param);
 		$y_def = create_definition($y_id, $year_min);
 		$y_sql = $y_def->sql;
+		$y_min = $y_axis->min;
+		$y_max = $y_axis->max;
 
 		if ($y_sql->nullToZero) {
 			$y_sql->y_field = 'isNull(y, 0) as y';
@@ -46,6 +48,8 @@
 		$x_id = paramToId($x_axis->param);
 		$x_def = create_definition($x_id, $year_min);
 		$x_sql = $x_def->sql;
+		$x_min = $x_axis->min;
+		$x_max = $x_axis->max;
 
 		if ($x_sql->nullToZero) {
 			$x_sql->x_field = 'isNull(x, 0) as x';
@@ -92,14 +96,49 @@
 					" \n" .
 					"  and $const->table.$const->field_tapDate between '$date_min' and '$date_max 23:59:59'";
 			}
-			
 		}
+
 
 		if ($tap_grade) {
 			$where .=
 				" \n" .
 				"  and $const->table.$const->field_tapGrade like '$tap_grade'";
 		}
+
+
+		if ($y_min  ||  $y_max) {
+			if (!$y_max) {
+				$where .=
+					" \n" .
+					"  and y >= $y_min";
+			} else if (!$y_min) {
+				$where .=
+					" \n" .
+					"  and y <= $y_max";
+			} else {
+				$where .=
+					" \n" .
+					"  and y between $y_min and $y_max";
+			}
+		}
+
+
+		if ($x_min  ||  $x_max) {
+			if (!$x_max) {
+				$where .=
+					" \n" .
+					"  and x >= $x_min";
+			} else if (!$x_min) {
+				$where .=
+					" \n" .
+					"  and x <= $x_max";
+			} else {
+				$where .=
+					" \n" .
+					"  and x between $x_min and $x_max";
+			}
+		}
+
 
 		if ($where_realistic_y) {
 			$where_realistic_y =
@@ -112,6 +151,7 @@
 				indent($where_realistic_y, 1);
 		}
 
+
 		if ($where_realistic_x) {
 			$where_realistic_x =
 				"and ( \n" .
@@ -122,6 +162,7 @@
 				$where . " \n" .
 				indent($where_realistic_x, 1);
 		}
+
 
 		$where = str_replace($y_id, 'y', $where);
 		$where = str_replace($x_id, 'x', $where);
@@ -172,10 +213,8 @@
 			"from ( \n" .
 			indent($query, 2) . " \n" .
 			") sub";
-
-
-
 		//End: Main query.
+
 
 
 		return $query;
