@@ -1,4 +1,4 @@
-var m_axes = {
+var m_filters = {
 	input: {
 		y_axis: {
 			category: null,
@@ -26,7 +26,7 @@ var m_axes = {
 
 
 
-m_axes.start = function() {
+m_filters.start = function() {
 	'use strict';
 	var date = moment().subtract(30, 'days').calendar();
 	date = moment(date, 'M/D/YYYY').format('M/D/YYYY');
@@ -39,7 +39,7 @@ m_axes.start = function() {
 
 
 
-m_axes.watch = function() {
+m_filters.watch = function() {
 	'use strict';
 
 
@@ -47,12 +47,12 @@ m_axes.watch = function() {
 		var changedElem = $(this);
 		var elemExpand = $(this).closest('.select-wrap').find(' > .elem-expand');
 
-		m_axes.refresh_elemExpand(changedElem, elemExpand);
+		m_filters.refresh_elemExpand(changedElem, elemExpand);
 	});
 
 
 	// $('.m-axes .submitBtn').click(function() {		//Watch for clicking the submit button.
-	// 	m_axes.submit();
+	// 	m_filters.submit();
 	// });
 
 
@@ -61,7 +61,19 @@ m_axes.watch = function() {
 
 
 
-m_axes.validate = function() {
+
+// m_filters.submit = function() {
+// 	'use strict';
+	
+
+// 	m_filters.validate();
+// };
+
+
+
+
+
+m_filters.validate = function() {
 	'use strict';
 	var errorText = '';
 	var y_min = $('.m-axes .y-axis .min').val();
@@ -136,16 +148,16 @@ m_axes.validate = function() {
 
 
 
-m_axes.parse = function() {
+m_filters.parse = function() {
 	'use strict';
 	var elem_yAxis = $('.m-axes .y-axis');
 	var elem_xAxis = $('.m-axes .x-axis');
-	var elem_filterMain = $('.m-axes .filter-main');
+	var elem_filtersMain = $('.m-axes .filter-main');
 	
 
 
 	//Y-axis input parse.
-	m_axes.input.y_axis = {
+	m_filters.input.y_axis = {
 		category: elem_yAxis.find('.y-category').val(),
 		param: [],
 		min: ifBlank(elem_yAxis.find('.min').val(), null),
@@ -153,7 +165,7 @@ m_axes.parse = function() {
 	};
 
 	elem_yAxis.find('select option:selected').each(function( index ) {
-		m_axes.input.y_axis.param.push(
+		m_filters.input.y_axis.param.push(
 			{
 				value: $(this).val(),
 				text: $(this).text()
@@ -165,7 +177,7 @@ m_axes.parse = function() {
 
 
 	//X-axis input parse.
-	m_axes.input.x_axis = {
+	m_filters.input.x_axis = {
 		category: elem_xAxis.find('.x-category').val(),
 		param: [],
 		min: null,
@@ -175,7 +187,7 @@ m_axes.parse = function() {
 	};
 
 	elem_xAxis.find('select option:selected').each(function( index ) {
-		m_axes.input.x_axis.param.push(
+		m_filters.input.x_axis.param.push(
 			{
 				value: $(this).val(),
 				text: $(this).text()
@@ -184,29 +196,29 @@ m_axes.parse = function() {
 	});
 
 	if (!$('.m-axes .x-axis .filter-wrap').hasClass('hidden')) {
-		m_axes.input.x_axis.min = ifBlank(elem_xAxis.find('.min').val(), null);
-		m_axes.input.x_axis.max = ifBlank(elem_xAxis.find('.max').val(), null);
+		m_filters.input.x_axis.min = ifBlank(elem_xAxis.find('.min').val(), null);
+		m_filters.input.x_axis.max = ifBlank(elem_xAxis.find('.max').val(), null);
 	}
 	//End: X-axis input parse.
 
 
 
 	//Main filter input parse.
-	var date_min = ifBlank(elem_filterMain.find('.date-min').val(), null);
+	var date_min = ifBlank(elem_filtersMain.find('.date-min').val(), null);
 	date_min = moment(date_min, 'M/D/YYYY').format('YYYY-MM-DD');
 
-	var date_max = ifBlank(elem_filterMain.find('.date-max').val(), null);
+	var date_max = ifBlank(elem_filtersMain.find('.date-max').val(), null);
 	if (date_max) {
 		date_max = moment(date_max, 'M/D/YYYY').format('YYYY-MM-DD');
 	}
 
 	var year_min = moment(date_min, 'YYYY-MM-DD').format('YY');
 
-	m_axes.input.filter_main = {
+	m_filters.input.filter_main = {
 		date_min: date_min,
 		date_max: date_max,
 		year_min: year_min,
-		tap_grade: ifBlank(elem_filterMain.find('.tap-grade').val(), null)
+		tap_grade: ifBlank(elem_filtersMain.find('.tap-grade').val(), null)
 	};
 	//End: Main filter input parse.
 
@@ -218,19 +230,19 @@ m_axes.parse = function() {
 
 
 
-m_axes.refresh_elemExpand = function(changedElem, elemExpand) {
+m_filters.refresh_elemExpand = function(changedElem, elemExpand) {
 	'use strict';
 	var msg = '';
 	var name_id = changedElem.val();
 
 
-	if (changedElem.hasClass('category')) {
-		if (name_id === 'time') {
-			changedElem.parent().closest('.area-wrap').find('.filter-wrap').addClass('hidden');
-		} else {
-			changedElem.parent().closest('.area-wrap').find('.filter-wrap').removeClass('hidden');
-		}
-	}
+	// if (changedElem.hasClass('category')) {
+	// 	if (name_id === 'time') {
+	// 		changedElem.parent().closest('.area-wrap').find('.filter-wrap').addClass('hidden');
+	// 	} else {
+	// 		changedElem.parent().closest('.area-wrap').find('.filter-wrap').removeClass('hidden');
+	// 	}
+	// }
 
 	$.ajax({
 		type: 'POST',
@@ -257,9 +269,9 @@ m_axes.refresh_elemExpand = function(changedElem, elemExpand) {
 
 
 $( document ).ready(function() {
-	m_axes.start();
+	m_filters.start();
 
-	m_axes.watch();
+	m_filters.watch();
 
 	$('.m-axes .y-category').trigger("change");
 	$('.m-axes .x-category').trigger("change");

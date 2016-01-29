@@ -27,6 +27,7 @@
     padding-left: 0.25em; }
 .m-axes .filter-main {
   margin-top: 0.25em;
+  margin-bottom: 0.5em;
   padding-left: 0.5em;
   padding-right: 0.5em; }
   .m-axes .filter-main .dateMin-wrap {
@@ -42,6 +43,8 @@
 .m-axes .row {
   margin: 0;
   padding: 0; }
+.m-axes .tooltip {
+  width: calc(100% + 4em); }
 .m-axes select {
   height: 2em;
   margin-bottom: 0.5em; }

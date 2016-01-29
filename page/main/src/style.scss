@@ -22,13 +22,32 @@ body {
 .l-left {
 	margin-right: $padding;
   width: 18em;
- //  display: inline-block;
   float: left;
-  height:100px;
+
+  .submitBtn {
+    width: 100%;
+    margin: 0;
+  }
 }
+
 
 
 .l-right {
 	width: auto;
   overflow: hidden;
 }
+
+
+
+.accordion {
+  width: 100%;
+  margin-top: $padding;
+  float: left;
+
+  .panel-body {
+    padding: 0;
+  }
+}
+
+
+

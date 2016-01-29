@@ -5,7 +5,7 @@ var p_main = {};
 p_main.watch = function() {
 	'use strict';
 
-	$('.m-axes .submitBtn').click(function() {
+	$('.submitBtn').click(function() {
 		p_main.submit()
 	});
 };

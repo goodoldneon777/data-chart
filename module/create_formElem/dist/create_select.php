@@ -12,13 +12,13 @@
 
 		switch ($input_area) {
 			case "y-axis":
-				$show_filter = "and o.show_yaxis_flag = 1 ";
+				$show_filter = "and o.show_in_yaxis_flag = 1 ";
 				break;
 			case "x-axis":
-				$show_filter = "and o.show_xaxis_flag = 1 ";
+				$show_filter = "and o.show_in_xaxis_flag = 1 ";
 				break;
 			case "filter":
-				$show_filter = "and o.show_filter_flag = 1 ";
+				$show_filter = "and o.show_in_filters_flag = 1 ";
 				break;
 			default:
 				$show_filter = "";
@@ -26,7 +26,7 @@
 		}
 
 		$sql =
-			"select d.name_id, d.title, d.tooltip, o.order_num, o.option_value, o.option_text \n" .
+			"select d.name_id, d.title, d.tooltip, o.order_num, o.option_value, o.option_text, show_filter_flag \n" .
 			"from param_input d \n" .
 			"inner join param_dropdown_option o \n" .
 			"	on d.name_id = o.name_id \n" .

@@ -12,9 +12,18 @@ body {
 .l-left {
   margin-right: 0.5em;
   width: 18em;
-  float: left;
-  height: 100px; }
+  float: left; }
+  .l-left .submitBtn {
+    width: 100%;
+    margin: 0; }
 
 .l-right {
   width: auto;
   overflow: hidden; }
+
+.accordion {
+  width: 100%;
+  margin-top: 0.5em;
+  float: left; }
+  .accordion .panel-body {
+    padding: 0; }
