@@ -1,6 +1,6 @@
 <?php
 	
-	function run_query($query) {
+	function queryRun($query) {
 
 
 
