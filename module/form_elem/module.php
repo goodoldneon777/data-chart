@@ -12,7 +12,9 @@
 
 		$html = '';
 
-		if ($html_class === null) {
+		if ($name_id === 'category') {
+			$html_class = 'category';
+		} else if ($html_class === null) {
 			$html_class = "";
 		}
 

@@ -1,6 +1,6 @@
 <?php
 	
-	function parse_data($query_results, $round_count = null) {
+	function parseData($query_results, $round_count = null) {
 		$data_heat = array();
 
 		foreach ($query_results as $row) {

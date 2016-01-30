@@ -1,7 +1,7 @@
 <?php
 
-	function create_axes() {
-
+	function axesCreate() {
+		require_once(SERVER_ROOT . '/module/category/module.php');
 		//Function continues...
 ?>
 
@@ -14,21 +14,15 @@
 
 			<h4>Y-Axis</h4>
 			<div class="y-axis category-wrap form-group">
-				<?php echo formElemCreate("category", "y-category category", "y-axis"); ?>
-
-				<div class="filter-wrap row"></div>
-
+				<?php echo categoryCreate("y-axis"); ?>
 			</div>
 
 
 
 			<h4>X-Axis</h4>
 			<div class="x-axis category-wrap form-group">
-				<?php echo formElemCreate("category", "x-category category", "x-axis"); ?>
-
-				<div class="filter-wrap row"></div>
-
-
+				<?php echo categoryCreate("x-axis"); ?>
+		
 				<div class="round-wrap row">
 					<div class="round-factor-wrap col-xs-6 noPad-xs">
 						<?php echo formElemCreate("axis_round_factor", "round-factor"); ?>
@@ -38,9 +32,8 @@
 						<?php echo formElemCreate("axis_round_count", "round-count"); ?>
 					</div>
 				</div>
-
 			</div>
-
+		
 
 
 			<h4>Main Filters</h4>

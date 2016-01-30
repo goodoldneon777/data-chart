@@ -1,6 +1,6 @@
 <?php
 
-	function create_filters() {
+	function filtersCreate() {
 		//Function continues...
 
 ?>

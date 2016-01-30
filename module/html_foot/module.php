@@ -1,6 +1,6 @@
 <?php
 
-	function create_html_foot() {
+	function htmlFootCreate() {
 
 		//Function continues...
 

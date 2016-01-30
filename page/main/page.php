@@ -19,7 +19,7 @@
 
 
     <?php
-      create_html_head(); //Create html_head module.
+      htmlHeadCreate(); //Create html_head module.
     ?>
 
     <link rel="stylesheet" media="screen" href="<?php echo WEB_ROOT . "/page/main/dist/style.min.css"; ?>">
@@ -50,7 +50,7 @@
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <?php
-                  create_axes();  //Create axes module.
+                  axesCreate();  //Create axes module.
                 ?>
               </div>
             </div>
@@ -67,7 +67,7 @@
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
               <div class="panel-body">
                 <?php
-                  // create_filters();  //Create filter module.
+                  // filtersCreate();  //Create filter module.
                 ?>
               </div>
             </div>
@@ -110,7 +110,7 @@
 
       <div class="l-right">
         <?php
-          create_chart(); //Create chart module.
+          chartCreate(); //Create chart module.
         ?>
       </div>
 
@@ -120,7 +120,7 @@
 
 
     <?php
-      create_html_foot(); //Create html_foot module.
+      htmlFootCreate(); //Create html_foot module.
     ?>
     
 

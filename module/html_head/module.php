@@ -1,6 +1,6 @@
 <?php
 
-	function create_html_head() {
+	function htmlHeadCreate() {
 
 		//Function continues...
 

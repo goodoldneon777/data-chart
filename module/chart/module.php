@@ -1,6 +1,6 @@
 <?php
 
-	function create_chart() {
+	function chartCreate() {
 
 		//Function continues...
 ?>
