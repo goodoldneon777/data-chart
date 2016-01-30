@@ -3,7 +3,7 @@
 	function create_query($m_axes, $filter = null) {
 		require (SERVER_ROOT . '/php/dist/constant.php');
 		require (SERVER_ROOT . '/php/dist/extension.php');
-		require (SERVER_ROOT . '/module/create_definition/module.php');
+		require (SERVER_ROOT . '/module/definition/module.php');
 		require (SERVER_ROOT . '/module/create_query/dist/create_subquery.php');
 
 
@@ -19,7 +19,7 @@
 
 		//Y-axis stuff.
 		$y_id = paramToId($y_axis->param);
-		$y_def = create_definition($y_id, $year_min);
+		$y_def = definitionCreate($y_id, $year_min);
 		$y_sql = $y_def->sql;
 		$y_min = $y_axis->min;
 		$y_max = $y_axis->max;
@@ -46,7 +46,7 @@
 
 		//X-axis stuff.
 		$x_id = paramToId($x_axis->param);
-		$x_def = create_definition($x_id, $year_min);
+		$x_def = definitionCreate($x_id, $year_min);
 		$x_sql = $x_def->sql;
 		$x_min = $x_axis->min;
 		$x_max = $x_axis->max;

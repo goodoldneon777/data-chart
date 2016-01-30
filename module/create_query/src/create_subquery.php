@@ -8,7 +8,7 @@
 	function create_subquery($id, $year, $alias = null) {
 		require (SERVER_ROOT . '/php/dist/constant.php');
 		require_once (SERVER_ROOT . '/php/dist/extension.php');
-		require_once (SERVER_ROOT . '/module/create_definition/module.php');
+		require_once (SERVER_ROOT . '/module/definition/module.php');
 
 
 		//Initialize.
@@ -23,7 +23,7 @@
 
 		//Test whether subqueries are needed ($hasSubfield).
 		if (count(idMultiStrToArr($id)) === 1) {	//If there's only 1 field to select (i.e. no subqueries needed).
-			$def_obj = create_definition($id, $year);
+			$def_obj = definitionCreate($id, $year);
 
 			$thisQuery_obj = clone $def_obj;
 			$id_arr = $thisQuery_obj->sql->id_arr;
@@ -57,7 +57,7 @@
 			$where = "where 1 = 1 ";
 
 			foreach ($id_arr as $key=>$value) {	//Loop thru each subfield.
-				$subquery_obj = create_definition($value, $year);
+				$subquery_obj = definitionCreate($value, $year);
 				$id = $subquery_obj->sql->id;
 				$where_realistic = $subquery_obj->sql->where_realistic;
 

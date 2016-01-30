@@ -1,6 +1,6 @@
 <?php
 
-	function create_definition($id, $year_min = null) {
+	function definitionCreate($id, $year_min = null) {
 		require (SERVER_ROOT . '/php/dist/constant.php');
 		require_once (SERVER_ROOT . '/php/dist/extension.php');
 
@@ -26,7 +26,7 @@
 		$fromPseudoTable = false;
 
 
-		require (SERVER_ROOT . '/module/create_definition/dist/category_' . $category . '.php');
+		require (SERVER_ROOT . '/module/definition/dist/category_' . $category . '.php');
 		
 
 		if (!isset($field)) {

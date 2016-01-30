@@ -47,7 +47,7 @@ m_axes.watch = function() {
 		var changed_elem = $(this);
 		var elem_expand = $(this).closest('.select-wrap').find(' > .elem-expand');
 
-		m_axes.createCategoryFilter(changed_elem);
+		// m_axes.createCategoryFilter(changed_elem);
 
 		m_axes.refreshElemExpand(changed_elem, elem_expand);
 	});
@@ -228,6 +228,8 @@ m_axes.refreshElemExpand = function(changed_elem, elem_expand) {
     dataType: 'json',
     success: function(results) {
     	elem_expand.html(results.html);
+    	
+    	m_axes.createCategoryFilter(changed_elem);
     },
     error: function(XMLHttpRequest, textStatus, errorThrown) {
 			msg = 'Status: ' + textStatus + '\n' + 'Error: ' + errorThrown;
