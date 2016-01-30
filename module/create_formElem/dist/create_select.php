@@ -96,7 +96,7 @@
 			}
 
 		}
-		$html .= '</div>';	//CLose 'elem-expand' div.
+		$html .= '</div>';	//Close 'elem-expand' div.
 
 
 		$html .= '</div>';	//Close 'select-wrap' div.

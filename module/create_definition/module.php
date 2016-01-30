@@ -1,6 +1,6 @@
 <?php
 
-	function create_definition($id, $year_min) {
+	function create_definition($id, $year_min = null) {
 		require (SERVER_ROOT . '/php/dist/constant.php');
 		require_once (SERVER_ROOT . '/php/dist/extension.php');
 
@@ -11,6 +11,7 @@
 		$title = null;
 		$unit = null;
 		$datatype = 'linear';
+		$filter_type = 'default';
 		
 
 		$field = null;
@@ -39,6 +40,7 @@
 		$info->title = $title;
 		$info->unit = $unit;
 		$info->datatype = $datatype;
+		$info->filter_type = $filter_type;
 
 
 		$sql = new stdClass();

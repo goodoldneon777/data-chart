@@ -3,6 +3,7 @@
 	function create_formElem($name_id, $html_class = null, $input_area = null) {
 		require_once(SERVER_ROOT . '/module/create_formElem/dist/create_select.php');
 		require_once(SERVER_ROOT . '/module/create_formElem/dist/create_input.php');
+		require_once(SERVER_ROOT . '/module/create_definition/module.php');
 
 		$server = getenv('server');
 		$userWR = getenv('userRO');
@@ -47,11 +48,10 @@
 		//>>>
 
 
+
 		$conn->close();
 
-
 		return $html;
-		// return $sql;
 	}
 
 ?>

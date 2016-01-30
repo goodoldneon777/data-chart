@@ -13,38 +13,20 @@
 		<form>
 
 			<h4>Y-Axis</h4>
-			<div class="y-axis area-wrap form-group">
-					<?php echo create_formElem("category", "y-category category", "y-axis"); ?>
+			<div class="y-axis category-wrap form-group">
+				<?php echo create_formElem("category", "y-category category", "y-axis"); ?>
 
-
-				<div class="filter-wrap row">
-					<div class="min-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_min", "min"); ?>
-					</div>
-
-
-					<div class="max-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_max", "max"); ?>
-					</div>
-				</div>
+				<div class="filter-wrap row"></div>
 
 			</div>
 
 
 
 			<h4>X-Axis</h4>
-			<div class="x-axis area-wrap form-group">
+			<div class="x-axis category-wrap form-group">
 				<?php echo create_formElem("category", "x-category category", "x-axis"); ?>
 
-				<div class="filter-wrap row hidden">
-					<div class="min-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_min", "min"); ?>
-					</div>
-
-					<div class="max-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_max", "max"); ?>
-					</div>
-				</div>
+				<div class="filter-wrap row"></div>
 
 
 				<div class="round-wrap row">

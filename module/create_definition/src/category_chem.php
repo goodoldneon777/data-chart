@@ -4,9 +4,6 @@
 
   $unit = '%';
 
-
-	
-
 	
 
   switch ($singleOrDiff) {

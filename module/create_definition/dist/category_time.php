@@ -6,6 +6,7 @@
 	$title = $timeType_name . ' Time';
 	$unit = null;
 	$datatype = 'datetime';
+	$filter_type = 'none';
 
 	$id = idWrapAdd($category . ' ' . $timeType_id);
 

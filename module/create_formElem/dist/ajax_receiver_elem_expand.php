@@ -1,5 +1,4 @@
 <?php
-	// require_once(SERVER_ROOT . '/php/dist/create_input.php');
 	require(SERVER_ROOT . '/module/create_formElem/module.php');
 
 	$server = getenv("server");
