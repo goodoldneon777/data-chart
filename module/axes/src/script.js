@@ -71,20 +71,28 @@ m_axes.validate = function() {
 	var date_max = $('.m-axes .filter-main .date-max').val();
 
 
-	if (y_min.length > 0  &&  !$.isNumeric(y_min)) {
-		error_text += "<li>Y-axis 'Min' is invalid. Must be a number.</li> \n";
+	if (y_min) {
+		if (y_min.length > 0  &&  !$.isNumeric(y_min)) {
+			error_text += "<li>Y-axis 'Min' is invalid. Must be a number.</li> \n";
+		}
 	}
 
-	if (y_max.length > 0  &&  !$.isNumeric(y_max)) {
-		error_text += "<li>Y-axis 'Max' is invalid. Must be a number.</li> \n";
+	if (y_max) {
+		if (y_max.length > 0  &&  !$.isNumeric(y_max)) {
+			error_text += "<li>Y-axis 'Max' is invalid. Must be a number.</li> \n";
+		}
 	}
 
-	if (!$('.m-axes .x-axis .filter-wrap').hasClass('hidden')  &&  x_min.length > 0  &&  !$.isNumeric(x_min)) {
-		error_text += "<li>X-axis 'Min' is invalid. Must be a number.</li> \n";
+	if (x_min) {
+		if (x_min.length > 0  &&  !$.isNumeric(x_min)) {
+			error_text += "<li>X-axis 'Min' is invalid. Must be a number.</li> \n";
+		}
 	}
 
-	if (!$('.m-axes .x-axis .filter-wrap').hasClass('hidden')  &&  x_max.length > 0  &&  !$.isNumeric(x_max)) {
-		error_text += "<li>X-axis 'Max' is invalid. Must be a number.</li> \n";
+	if (x_max) {
+		if (x_max.length > 0  &&  !$.isNumeric(x_max)) {
+			error_text += "<li>X-axis 'Max' is invalid. Must be a number.</li> \n";
+		}
 	}
 
 	if (x_category === 'tap_dt') {

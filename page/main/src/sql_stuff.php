@@ -1,5 +1,5 @@
 <?php
-	require_once(SERVER_ROOT . '/module/create_query/module.php');
+	require_once(SERVER_ROOT . '/module/query_create/module.php');
 	require_once(SERVER_ROOT . '/module/run_query/module.php');
 	require_once(SERVER_ROOT . '/module/parse_data/module.php');
 
@@ -7,7 +7,7 @@
 	$m_axes = json_decode($_POST["m_axes"]);
 
 
-	$query = create_query($m_axes);
+	$query = queryCreate($m_axes);
 
 
 	$query_results = run_query($query);

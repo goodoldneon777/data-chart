@@ -1,10 +1,10 @@
 <?php
 	
-	function create_query($m_axes, $filter = null) {
+	function queryCreate($m_axes, $filter = null) {
 		require (SERVER_ROOT . '/php/dist/constant.php');
 		require (SERVER_ROOT . '/php/dist/extension.php');
 		require (SERVER_ROOT . '/module/definition/module.php');
-		require (SERVER_ROOT . '/module/create_query/dist/create_subquery.php');
+		require (SERVER_ROOT . '/module/query_create/dist/create_subquery.php');
 
 
 
