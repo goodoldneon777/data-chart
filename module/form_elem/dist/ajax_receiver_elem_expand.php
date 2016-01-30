@@ -1,5 +1,5 @@
 <?php
-	require(SERVER_ROOT . '/module/create_formElem/module.php');
+	require(SERVER_ROOT . '/module/form_elem/module.php');
 
 	$server = getenv("server");
 	$userRO = getenv("userRO");
@@ -37,7 +37,7 @@
 		$child_name_id = $row["child_name_id"];
 		$html_class = $row["html_class"];
 
-		$html .= create_formElem($child_name_id, $html_class);
+		$html .= formElemCreate($child_name_id, $html_class);
 	}
 	
 

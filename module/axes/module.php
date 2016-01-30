@@ -14,7 +14,7 @@
 
 			<h4>Y-Axis</h4>
 			<div class="y-axis category-wrap form-group">
-				<?php echo create_formElem("category", "y-category category", "y-axis"); ?>
+				<?php echo formElemCreate("category", "y-category category", "y-axis"); ?>
 
 				<div class="filter-wrap row"></div>
 
@@ -24,18 +24,18 @@
 
 			<h4>X-Axis</h4>
 			<div class="x-axis category-wrap form-group">
-				<?php echo create_formElem("category", "x-category category", "x-axis"); ?>
+				<?php echo formElemCreate("category", "x-category category", "x-axis"); ?>
 
 				<div class="filter-wrap row"></div>
 
 
 				<div class="round-wrap row">
 					<div class="round-factor-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_round_factor", "round-factor"); ?>
+						<?php echo formElemCreate("axis_round_factor", "round-factor"); ?>
 					</div>
 
 					<div class="round-count-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_round_count", "round-count"); ?>
+						<?php echo formElemCreate("axis_round_count", "round-count"); ?>
 					</div>
 				</div>
 
@@ -48,12 +48,12 @@
 
 				<div class="row">
 					<div class="dateMin-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("date_min", "date-min"); ?>
+						<?php echo formElemCreate("date_min", "date-min"); ?>
 					</div>
 
 
 					<div class="dateMax-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("date_max", "date-max"); ?>
+						<?php echo formElemCreate("date_max", "date-max"); ?>
 					</div>
 				</div>
 
@@ -61,7 +61,7 @@
 				<div class="row">
 					<div class="col-xs-3"></div>
 					<div class="tapGrade-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("tap_grade", "tap-grade"); ?>
+						<?php echo formElemCreate("tap_grade", "tap-grade"); ?>
 					</div>
 					<div class="col-xs-3"></div>
 				</div>

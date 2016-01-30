@@ -10,7 +10,7 @@
     <?php
       //Load module files.
       require(SERVER_ROOT . '/module/html_head/module.php');
-      require(SERVER_ROOT . '/module/create_formElem/module.php');
+      require(SERVER_ROOT . '/module/form_elem/module.php');
       require(SERVER_ROOT . '/module/axes/module.php');
       require(SERVER_ROOT . '/module/filters/module.php');
       require(SERVER_ROOT . '/module/chart/module.php');
@@ -67,7 +67,7 @@
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
               <div class="panel-body">
                 <?php
-                  create_filters();  //Create filter module.
+                  // create_filters();  //Create filter module.
                 ?>
               </div>
             </div>

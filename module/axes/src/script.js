@@ -221,7 +221,7 @@ m_axes.refreshElemExpand = function(changed_elem, elem_expand) {
 
 	$.ajax({
 		type: 'POST',
-    url: gVar.root + '/module/create_formElem/dist/ajax_receiver_elem_expand.php',
+    url: gVar.root + '/module/form_elem/dist/ajax_receiver_elem_expand.php',
     data: {
     	'name_id' : JSON.stringify(name_id)
     },
