@@ -1,0 +1,23 @@
+$padding: 0.5em;
+
+
+
+.m-category {
+	margin: 0;
+	padding: 0;
+
+	.category-wrap {
+		padding-left: $padding;
+		padding-right: $padding;
+
+		.elem-expand {
+			margin-top: $padding / 2;
+			padding-left: $padding * 2;
+		}
+	}
+
+	.filter-wrap {
+		padding-left: $padding / 2;
+		padding-right: $padding / 2;
+	}
+}

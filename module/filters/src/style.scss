@@ -4,37 +4,8 @@ $padding: 0.5em;
 
 .m-filters {
 
-	.item {
-		margin-bottom: $padding;
-		padding-left: $padding;
-		padding-right: $padding;
-	}
-
-	.elem-expand {
-		margin-top: $padding/2;
-		padding-left: $padding;
-	}
-
-	.filter-wrap {
-		margin-top: $padding/2;
-		padding-left: $padding;
-		padding-right: $padding;
-
-		.min-wrap {
-			padding-right: $padding/2;
-		}
-
-		.max-wrap {
-			padding-left: $padding/2;
-		}
-	}
-
-	.panel-body {
-		padding: 0;
-	}
-
-	.panel-heading {
-		padding: $padding/2;
+	.filter-item {
+		margin-bottom: 0;
 	}
 
 	.row {

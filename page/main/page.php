@@ -40,12 +40,8 @@
         <div class="accordion panel-group" role="tablist" aria-multiselectable="true">
 
           <div class="panel panel-primary">
-            <div class="panel-heading" role="tab">
-              <h4 class="panel-title">
-                <a role="button" data-toggle="collapse" data-parent=".accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                  Main
-                </a>
-              </h4>
+            <div class="panel-heading" role="button" data-toggle="collapse" data-parent=".accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+              <h4 class="panel-title">Main</h4>
             </div>
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
@@ -57,29 +53,21 @@
           </div>
 
           <div class="panel panel-primary">
-            <div class="panel-heading" role="tab">
-              <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent=".accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                  Filter
-                </a>
-              </h4>
+            <div class="panel-heading" role="button" data-toggle="collapse" data-parent=".accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              <h4 class="panel-title">Filters</h4>
             </div>
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
               <div class="panel-body">
                 <?php
-                  // filtersCreate();  //Create filter module.
+                  filtersCreate();  //Create filter module.
                 ?>
               </div>
             </div>
           </div>
 
           <div class="panel panel-primary">
-            <div class="panel-heading" role="tab">
-              <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent=".accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                  Appearance
-                </a>
-              </h4>
+            <div class="panel-heading" role="button" data-toggle="collapse" data-parent=".accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              <h4 class="panel-title">Appearance</h4>
             </div>
             <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
               <div class="panel-body">
@@ -89,12 +77,8 @@
           </div>
 
           <div class="panel panel-primary">
-            <div class="panel-heading" role="tab">
-              <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent=".accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                  Regression
-                </a>
-              </h4>
+            <div class="panel-heading" role="button" data-toggle="collapse" data-parent=".accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              <h4 class="panel-title">Regression</h4>
             </div>
             <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
               <div class="panel-body">

@@ -20,7 +20,7 @@
 
 
 			<h4>X-Axis</h4>
-			<div class="x-axis category-wrap form-group">
+			<div class="x-axis form-group">
 				<?php echo categoryCreate("x-axis"); ?>
 		
 				<div class="round-wrap row">

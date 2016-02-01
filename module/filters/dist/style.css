@@ -1,22 +1,5 @@
-.m-filters .item {
-  margin-bottom: 0.5em;
-  padding-left: 0.5em;
-  padding-right: 0.5em; }
-.m-filters .elem-expand {
-  margin-top: 0.25em;
-  padding-left: 0.5em; }
-.m-filters .filter-wrap {
-  margin-top: 0.25em;
-  padding-left: 0.5em;
-  padding-right: 0.5em; }
-  .m-filters .filter-wrap .min-wrap {
-    padding-right: 0.25em; }
-  .m-filters .filter-wrap .max-wrap {
-    padding-left: 0.25em; }
-.m-filters .panel-body {
-  padding: 0; }
-.m-filters .panel-heading {
-  padding: 0.25em; }
+.m-filters .filter-item {
+  margin-bottom: 0; }
 .m-filters .row {
   margin: 0;
   padding: 0; }

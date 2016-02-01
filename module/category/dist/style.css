@@ -1,0 +1,12 @@
+.m-category {
+  margin: 0;
+  padding: 0; }
+  .m-category .category-wrap {
+    padding-left: 0.5em;
+    padding-right: 0.5em; }
+    .m-category .category-wrap .elem-expand {
+      margin-top: 0.25em;
+      padding-left: 1em; }
+  .m-category .filter-wrap {
+    padding-left: 0.25em;
+    padding-right: 0.25em; }

@@ -1,8 +1,10 @@
 <?php
 
 	function filtersCreate() {
-		//Function continues...
+		require_once(SERVER_ROOT . '/module/category/module.php');
+  	require_once(SERVER_ROOT . '/module/form_elem/module.php');
 
+		//Function continues...
 ?>
 
 
@@ -12,21 +14,13 @@
 		<form>
 
 			<h4>Filter Item</h4>
-			<div class="item area-wrap form-group">
-					<?php echo create_formElem("category", "y-category", "y-axis"); ?>
+			<div class="filter-item form-group">
+				<?php echo categoryCreate("filters"); ?>
+			</div>
 
-
-				<div class="filter-wrap row">
-					<div class="min-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_min", "min"); ?>
-					</div>
-
-
-					<div class="max-wrap col-xs-6 noPad-xs">
-						<?php echo create_formElem("axis_max", "max"); ?>
-					</div>
-				</div>
-
+			<h4>Filter Item</h4>
+			<div class="filter-item form-group">
+				<?php echo categoryCreate("filters"); ?>
 			</div>
 
 

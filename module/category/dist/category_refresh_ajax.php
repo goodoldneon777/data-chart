@@ -1,19 +1,23 @@
 <?php
+	require_once(SERVER_ROOT . '/php/dist/extension.php');
+	require_once(SERVER_ROOT . '/module/definition/module.php');
 	require_once(SERVER_ROOT . '/module/form_elem/module.php');
+	require_once(SERVER_ROOT . '/module/category/dist/id_from_first_options.php');
 
 	$server = getenv("server");
-	$userRO = getenv("userRO");
-	$passRO = getenv("passRO");
+	$user_ro = getenv("userRO");
+	$pass_ro = getenv("passRO");
 	$db = getenv("db");
 
-	$errorArr = array();
+	$error_arr = array();
 	$html = "";
 	
 	$name_id = json_decode($_POST["name_id"]);
+	$id_first_part = json_decode($_POST["id_first_part"]);
 
 
 	// Create connection
-	$conn = new mysqli($server, $userRO, $passRO, $db);
+	$conn = new mysqli($server, $user_ro, $pass_ro, $db);
 	// Check connection
 	if ($conn->connect_error) {
 	  die("Connection failed: " . $conn->connect_error);
@@ -27,7 +31,7 @@
 		"order by c.order_num \n";
 
 	if (!$conn->query($sql)) {
-	  $errorArr[] = $conn->error;
+	  $error_arr[] = $conn->error;
 	}
 
 	$result = $conn->query($sql);
@@ -42,7 +46,17 @@
 	
 
 
-	if(count($errorArr) === 0) {
+	$id_second_part = idFromFirstOptions($html);
+
+	$id = idWrapAdd("$id_first_part $id_second_part");
+
+
+	$def = definitionCreate($id);
+
+	$filter_type = $def->info->filter_type;
+
+
+	if(count($error_arr) === 0) {
     $conn->commit();
     $status = "success";
 	} else {
@@ -54,8 +68,10 @@
 	$output = new stdClass();
 	$output->html = $html;
 	$output->status = $status;
-	$output->errorArr = $errorArr;
+	$output->errorArr = $error_arr;
 	// $output->debugSQL = $sql;
+	$output->id = $id;
+	$output->filter_type = $filter_type;
 
 	echo json_encode($output);
 

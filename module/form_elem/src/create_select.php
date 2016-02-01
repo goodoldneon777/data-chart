@@ -17,7 +17,7 @@
 			case "x-axis":
 				$show_filter = "and o.show_in_xaxis_flag = 1 ";
 				break;
-			case "filter":
+			case "filters":
 				$show_filter = "and o.show_in_filters_flag = 1 ";
 				break;
 			default:

@@ -1,5 +1,5 @@
 <?php
-	require(SERVER_ROOT . '/module/form_elem/module.php');
+	require_once(SERVER_ROOT . '/module/form_elem/module.php');
 
 	$server = getenv("server");
 	$userRO = getenv("userRO");
@@ -10,7 +10,7 @@
 	$html = "";
 	
 	$name_id = json_decode($_POST["name_id"]);
-	// $name_id = 'temp_diff';
+
 
 	// Create connection
 	$conn = new mysqli($server, $userRO, $passRO, $db);
