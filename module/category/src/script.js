@@ -17,7 +17,7 @@ if (typeof m_category === 'undefined') {
     $('body').on('change', '.m-category .filter-wrap .watch', function() {
       var changed_elem = $(this);
 
-      m_category.refreshFilter(changed_elem);
+      m_category.filterRefresh(changed_elem);
     });
 
   };
@@ -52,46 +52,13 @@ if (typeof m_category === 'undefined') {
 
       },
       error: function(XMLHttpRequest, textStatus, errorThrown) {
-  		msg = 'Status: ' + textStatus + '\n' + 'Error: ' + errorThrown;
-  		console.log(msg);
+    		msg = 'Status: ' + textStatus + '\n' + 'Error: ' + errorThrown;
+    		console.log(msg);
     		// dialogError(msg);
       }   
     });
 
   };
-
-
-
-
-
-  // m_category.refresh = function(changed_elem) {
-  //   'use strict';
-  //   var msg = '';
-  //   var name_id = changed_elem.val();
-  //   var elem_expand = changed_elem.closest('.select-wrap').find(' > .elem-expand');
-  //   var id_first_part = m_category.idFirstPartCreate(changed_elem);
-
-
-  //   $.ajax({
-  //     type: 'POST',
-  //     url: gVar.root + '/module/form_elem/dist/ajax_receiver_elem_expand.php',
-  //     data: {
-  //       'name_id' : JSON.stringify(name_id)
-  //     },
-  //     dataType: 'json',
-  //     success: function(results) {
-  //       elem_expand.html(results.html);
-  //       // console.log(m_category.createParamArray(changed_elem));
-  //       // m_category.createCategoryFilter(changed_elem);
-  //     },
-  //     error: function(XMLHttpRequest, textStatus, errorThrown) {
-  //     msg = 'Status: ' + textStatus + '\n' + 'Error: ' + errorThrown;
-  //     console.log(msg);
-  //       // dialogError(msg);
-  //     }   
-  //   });
-
-  // };
 
 
 
@@ -116,7 +83,7 @@ if (typeof m_category === 'undefined') {
 
 
 
-  m_category.refreshFilter = function(changed_elem) {
+  m_category.filterRefresh = function(changed_elem) {
     'use strict';
     var msg = '';
     var operator = changed_elem.val();
@@ -183,38 +150,12 @@ if (typeof m_category === 'undefined') {
 
 
 
-  // m_category.createParamArray = function(elem) {
-  //     'use strict';
-  //     var elem_category = elem.closest('.category-wrap');
-  //     var param_array = [];
-
-
-  //     elem_category.find('select option:selected').each(function( index ) {
-  //       param_array.push(
-  //         {
-  //           value: $(this).val(),
-  //           text: $(this).text()
-  //         }
-  //       );
-  //     });
-
-
-  //     return param_array;
-  // };
-
-
-
-
-
   //The following stuff will be executed after this module is finished loading, but before the page is finished loading.
-  // if (typeof m_category.watch == 'function') { 
-    // yourFunctionName(); 
-    m_category.watch();
-  // }
+  m_category.watch();
 }
 
 
-// $('.m-category .category').last().trigger("change");    //Trigger a change on the most recent instance of this module.
+
 
 
 

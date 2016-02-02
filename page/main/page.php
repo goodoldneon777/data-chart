@@ -46,7 +46,8 @@
             <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
               <div class="panel-body">
                 <?php
-                  axesCreate();  //Create axes module.
+                  // axesCreate();  //Create axes module.
+                  echo filtersCreate();  //Create filter module.
                 ?>
               </div>
             </div>
@@ -59,7 +60,7 @@
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
               <div class="panel-body">
                 <?php
-                  filtersCreate();  //Create filter module.
+                  echo filtersCreate();  //Create filter module.
                 ?>
               </div>
             </div>

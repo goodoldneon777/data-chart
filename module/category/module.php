@@ -1,5 +1,30 @@
 <?php
 	function categoryCreate($area) {
+
+		//Function continues below...
+?>
+
+
+		<link rel="stylesheet" media="screen" href="<?php echo WEB_ROOT . "/module/category/dist/style.min.css"; ?>">
+
+		
+		<?php echo categoryHTML($area); ?>
+
+
+		<script src="<?php echo WEB_ROOT . "/module/category/dist/script.min.js"; ?>"></script>
+
+
+<?php
+		//...function continues from above.
+	}
+?>
+
+
+
+
+
+<?php
+	function categoryHTML($area) {
 		require_once(SERVER_ROOT . '/php/dist/extension.php');
 		require_once(SERVER_ROOT . '/module/definition/module.php');
   	require_once(SERVER_ROOT . '/module/form_elem/module.php');
@@ -38,11 +63,9 @@
 		}
 
 
-		//Function continues below...
+		ob_start();
+		//Function continues...
 ?>
-
-
-	<link rel="stylesheet" media="screen" href="<?php echo WEB_ROOT . "/module/category/dist/style.min.css"; ?>">
 
 		
 		<div class="<?php echo $html_class; ?>">
@@ -73,12 +96,16 @@
 			</div>
 
 		</div>
-
-
-		<script src="<?php echo WEB_ROOT . "/module/category/dist/script.min.js"; ?>"></script>
-
+		  
 
 <?php
-		//...function continues from above.
+		//...function continues.
+
+		$html = ob_get_clean();
+
+
+		return $html;
 	}
+
+
 ?>
